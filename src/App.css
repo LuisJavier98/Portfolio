@@ -1,0 +1,165 @@
+body {
+  margin: 0px;
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+}
+p{
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px
+}
+
+p {
+  font-size: 25px;
+}
+
+button {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  list-style: none;
+  gap: 3%;
+  height: 30px;
+  position: fixed;
+  right: 0px;
+  padding: 20px 30px;
+  background-color: transparent;
+  width: 100%;
+  z-index: 2;
+  background-color: rgb(52, 49, 49);
+  ;
+}
+
+.card_header li a {
+  text-decoration: none;
+  color: white;
+}
+
+.card_home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.card_home img {
+  display: block;
+  margin: 20px auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.card_aboutMe {
+  height: 100vh;
+  background-color: rgb(52, 49, 49);
+  padding-top: 30px;
+}
+
+
+
+.card_personal {
+  background-size: 100% 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px auto;
+  border-radius: 30px;
+  background-color: rgb(70, 70, 90);
+  width: 90%;
+  padding-top: 40px;
+  height: 70%;
+}
+
+.card_image {
+  max-width: 50%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
+.card_education {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+
+.card_projects {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  text-align: center;
+}
+
+.card_projects div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card_pokedex a img {
+  width: 100%;
+  height: 80%;
+  margin: 0 auto;
+}
+
+.card_rick a img {
+  width: 100%;
+  height: 80%;
+}
+
+.card_ecommerce a img {
+  width: 100%;
+  height: 80%;
+}
+
+.card_weather a img {
+  width: 100%;
+  height: 80%;
+}
+
+footer {
+  background-color: rgb(52, 49, 49);
+  height: 120px;
+  margin-top: 30px;
+}
+
+.card_contactMe div {
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.card_contactMe div a {
+  text-decoration: none;
+  color: white;
+
+}
