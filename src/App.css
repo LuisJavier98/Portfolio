@@ -100,7 +100,7 @@ button {
 .card_personal {
   background-size: 100% 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--grid);
   margin: 10px auto;
   border-radius: 30px;
   background-color: rgb(182, 182, 202);
@@ -109,6 +109,7 @@ button {
   box-sizing: border-box;
   padding: 5%;
   box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .card_image {
@@ -128,36 +129,30 @@ button {
 .card_skills {
   min-height: 100vh;
   background: linear-gradient(to top, rgb(0, 0, 0), rgb(87, 82, 82));
-  position: relative;
+  display: grid;
+  grid-template-columns: var(--grid);
 
 }
 
 .text_skills {
-  width: 48vw;
-  position: absolute;
-  left: 0px;
-  top: 10%;
+  width: 100%;
   box-sizing: border-box;
   padding: 5%;
-  background-color: rgb(182, 182, 202);
-  border-radius: 0px 30px 30px 0px;
-  box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
-
-
+  text-align: center;
+  margin: auto auto;
+  font-family:'Courier New', Courier, monospace ;
 }
 
 .box_skills {
-  position: absolute;
-  right: 0px;
-  bottom: 10%;
-  width: 80vw;
-  height: 48vw;
+  width: 100%;
+  height: var(--boxSkillsHeigth);
   box-sizing: border-box;
   padding: 5%;
-  background-color: rgb(182, 182, 202);
   border-radius: 30px 0px 0px 30px;
   box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
-  perspective: 1000px;
+  perspective: 1500px;
+  margin: auto auto;
+  position: relative;
 }
 
 
@@ -171,7 +166,9 @@ button {
   width: 100%;
   height: 100%;
   animation: rotate 10s infinite linear;
+  transform-style: preserve-3d;
 }
+
 
 @keyframes rotate {
   from {
@@ -182,107 +179,87 @@ button {
     transform: rotateY(360deg);
   }
 
+} 
+
+:root {
+  --figureHeight: 70%;
+  --figureWidth: 40%;
+  --translate: 250px;
+  --grid: repeat(2, 1fr);
+  --gridProject: repeat(2, 1fr);
+  --boxSkillsHeigth:60%
 }
 
-.skill {
-  width: 50%;
-  height: 50%;
+.box_skill figure {
+  width: var(--figureWidth);
+  height: var(--figureHeight);
+  right: 30%;
+  overflow: hidden;
+  margin: auto auto;
+  position: absolute;
+}
+
+.box_skill img {
   display: block;
   margin: auto auto;
-  right: 25%;
-  overflow: hidden;
-
+  width: 80%;
+  height: 100%;
 }
 
-.box_skill:nth-child(1) {
-  transform: rotateY(0deg) translateZ(360px);
+.box_skill figure:nth-child(1) {
+  transform: rotateY(0deg) translateZ(var(--translate));
 }
 
-.box_skill:nth-child(2) {
-  transform: rotateY(72deg) translateZ(360px);
+.box_skill figure:nth-child(2) {
+  transform: rotateY(60deg) translateZ(var(--translate));
 }
 
-.box_skill:nth-child(3) {
-  transform: rotateY(144deg) translateZ(360px);
+.box_skill figure:nth-child(3) {
+  transform: rotateY(120deg) translateZ(var(--translate));
 }
 
-.box_skill:nth-child(4) {
-  transform: rotateY(216deg) translateZ(360px);
+.box_skill figure:nth-child(4) {
+  transform: rotateY(180deg) translateZ(var(--translate));
 }
 
-.box_skill:nth-child(5) {
-  transform: rotateY(288deg) translateZ(360px);
+.box_skill figure:nth-child(5) {
+  transform: rotateY(240deg) translateZ(var(--translate));
 }
 
-.box_skill:nth-child(6) {
-  transform: rotateY(360deg) translateX(360000px);
+.box_skill figure:nth-child(6) {
+  transform: rotateY(300deg) translateZ(var(--translate));
 }
 
-.card_buttons {
-  margin: auto auto;
-  display: flex;
-  width: 100%;
-  margin-top: 20px;
-  gap: 1%;
-  justify-content: center;
-  align-items: center;
-
-
-}
-
-.button_inactive {
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  margin: 0;
-  box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
-
-}
-
-.button_active {
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  margin: 0;
-  box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
-  background-color: gray;
-}
 
 .card_projects {
   min-height: 100vh;
   background: linear-gradient(rgb(0, 0, 0), rgb(87, 82, 82));
   padding-top: 70px;
   padding-bottom: 70px;
-  position: relative;
-  perspective: 1500px;
+  display: grid;
+  grid-template-columns: var(--gridProject);
 }
 
 .text_project {
-  position: absolute;
-  width: 48vw;
-  left: 0px;
-  top: 20%;
+  width: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  margin: auto auto;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .card_contain_projects {
-  width: 48vw;
-  position: absolute;
-  right: 0px;
-  bottom: 20%;
-  background-color: rgb(182, 182, 202);
+  width: 100%;
   border-radius: 30px 30px 30px 30px;
   box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
   box-sizing: border-box;
   padding: 5%;
   display: flex;
   flex-direction: column;
-  transform: rotateY(-10deg);
+  justify-content: center;
   transition: all 1s ease;
-  max-height: 80vh;
+  height: var(--boxSkillsHeigth);
+  margin: auto auto;
 }
 
 
@@ -307,6 +284,7 @@ button {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 
 }
 
@@ -326,7 +304,16 @@ button {
   z-index: 1;
   backdrop-filter: blur(20px);
   transition: all 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 5%
+}
 
+.card_subida a {
+  text-decoration: none;
 }
 
 .buttonProjectInactive {
@@ -378,4 +365,69 @@ footer {
   color: white;
   transform: scale(1.5);
 
+}
+
+@media (max-width:1240px) {
+
+
+  :root {
+    --figureHeight: 60%;
+    --figureWidth: 40%;
+    --translate: 200px;
+  }
+}
+@media (max-width:950px) {
+
+
+  :root {
+    --figureHeight: 50%;
+    --figureWidth: 40%;
+    --translate: 150px;
+  }
+}
+
+@media (max-width:700px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 80%;
+    --figureWidth: 40%;
+    --translate: 180px;
+    --gridProject: repeat(1, 1fr);
+    --boxSkillsHeigth:100%
+  }
+  .text_project{
+    order: -1;
+  }
+}
+@media (max-width:450px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 50%;
+    --figureWidth: 40%;
+    --translate: 150px;
+  }
+}
+@media (max-width:360px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 40%;
+    --figureWidth: 40%;
+    --translate: 120px;
+  }
+}
+@media (max-width:300px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 30%;
+    --figureWidth: 40%;
+    --translate: 100px;
+  }
 }

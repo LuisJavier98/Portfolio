@@ -9,6 +9,7 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import Projects from '../src/Pojects'
+import { skills } from '../src/Pojects'
 
 
 function App() {
@@ -64,7 +65,6 @@ function App() {
         </li>
       </header>
       <div className='card_home' id='home'>
-        <img src={image} alt="myface" />
         <h1 style={{ color: 'white' }}>Luis Javier</h1>
         <p style={{ color: 'white', textAlign: 'center' }}>I'm a insutrial engineering but now interested in web developer</p>
       </div>
@@ -92,34 +92,70 @@ function App() {
       </div>
 
       <div className='card_skills' id='skills'>
-        <h2 className='text_skills' style={{ color: 'white' }}>Skills</h2>
+        <div className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
+          <h2>Skills</h2> <hr />
+          <p style={{color:'white'}}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
+          </div>
         <div className='box_skills'>
-            <div className='box_skill'  >
-              <img className='skill' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png" alt="" />
-              <img className='skill' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png" alt="" />
-              <img className='skill' src="https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png" alt="" />
-              <img className='skill' src="https://www.gran-turismo.com/gtsport/decal/5125114039554278920_1.png" alt="" />
-              <img className='skill' src="https://upload.wikimedia.org/wikipedia/commons/4/49/Redux.png" alt="" />
-              <img className='skill' src="https://camo.githubusercontent.com/bf86933b5abaf817383aa87cf640bb80d41b314ea1509385e7e52433f0aee4c6/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f3531322f312a395531746f6572467842386169465272654c784555512e706e67" alt="" />
-              <img className='skill' src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="" />
-            </div>
+          <div className='box_skill'  >
+            {skills.map(skill => <figure><img className='skill' src={skill} alt={skill} /></figure>)}
+          </div>
         </div>
       </div>
       <div className='card_projects' id='projects'>
-        <h2 className='text_project' style={{ textAlign: 'center', color: 'white' }}>Projects</h2>
         <div className='card_contain_projects'>
           <div ref={SelectCard} className='card_contain' >
             <div ref={ProjectMove}
               className='projects'>
               {Projects.map((project, indice) => <div onMouseOver={() => ElementS(100, indice)} onMouseOut={() => ElementS(0, indice)} className=' project'>
-                <img  id={indice} src={project} alt="" />
-                <div className='card_subida'></div>
+                <img id={indice} src={project} alt="" />
+                {
+                  indice == 0 ?
+                    <div className='card_subida'>
+                      <h2 style={{ textAlign: 'center' }} >Pokedex
+                      </h2>
+                      <p style={{ color: 'red' }}>Web page focus on searching pokemons by type and name </p>
+                      <div style={{ display: 'flex', gap: '8%' }}>
+                        <a href="https://fluffy-tarsier-d169ec.netlify.app/#/pokedex" target={'_blank'}>Demo</a>
+                        <a href="https://github.com/LuisJavier98/Pokedex" target={'_blank'}>Code</a>
+                      </div>
+                    </div>
+                    : indice == 1 ?
+                      <div className='card_subida'>
+                        <h2 style={{ textAlign: 'center' }} >E-commerce</h2>
+                        <p style={{ color: 'red' }}></p>
+                        <div style={{ display: 'flex', gap: '8%' }}>
+                          <a href="https://jade-caramel-402266.netlify.app" target={'_blank'}>Demo</a>
+                          <a href="https://github.com/LuisJavier98/Entregable-6" target={'_blank'}>Code</a>
+                        </div>
+                      </div>
+                      : indice == 2 ?
+                        <div className='card_subida'>
+                          <h2 style={{ textAlign: 'center' }} >Rick and Morty Api</h2>
+                          <p style={{ color: 'red' }}></p>
+                          <div style={{ display: 'flex', gap: '8%' }}>
+                            <a href="https://harmonious-puffpuff-fe0efd.netlify.app" target={'_blank'}>Demo</a>
+                            <a href="https://github.com/LuisJavier98/Entregable-3" target={'_blank'}>Code</a>
+                          </div>
+                        </div>
+                        : <div className='card_subida'>
+                          <h2 style={{ textAlign: 'center' }} >Weather Api</h2>
+                          <p style={{ color: 'red' }}></p>
+                          <div style={{ display: 'flex', gap: '8%' }}>
+                            <a href="https://golden-licorice-3c5c45.netlify.app" target={'_blank'}>Demo</a>
+                            <a href="https://github.com/LuisJavier98/Segundo-entrgable" target={'_blank'}>Code</a>
+                          </div>
+                        </div>
+                }
               </div>)}
             </div>
           </div>
           <div className='card_contain_buttonProject'>
             {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
           </div>
+        </div>
+        <div className='text_project' style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{color:'white'}}>These are 4 of my projects front end developed in Academlo
+        </p>
         </div>
       </div>
       <footer className='card_contactMe' id='contactMe'>
