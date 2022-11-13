@@ -10,12 +10,17 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import Projects from '../src/Pojects'
 import { skills } from '../src/Pojects'
+import { AiOutlineMenu } from 'react-icons/ai'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 
 
 function App() {
 
   const [projectNumber, setprojectNumber] = useState(0)
   const [render, setrender] = useState()
+  const [isActive, setisActive] = useState(false)
+
+  const handleChange = () => setisActive(!isActive)
 
   const ProjectMove = useRef()
   const SelectCard = useRef()
@@ -47,7 +52,10 @@ function App() {
   return (
     <div className="App">
       <video src={video} autoPlay muted loop></video>
-      <header className='card_header'>
+      <header className={isActive ? 'card_header' : 'card_header_inactive'}>
+        <li onClick={handleChange} className='card_close' style={{ color: 'white' }}>
+          <IoIosCloseCircleOutline />
+        </li>
         <li>
           <a href="#home">Home</a>
         </li>
@@ -65,6 +73,7 @@ function App() {
         </li>
       </header>
       <div className='card_home' id='home'>
+        <button onClick={handleChange}><AiOutlineMenu /></button>
         <h1 style={{ color: 'white' }}>Luis Javier</h1>
         <p style={{ color: 'white', textAlign: 'center' }}>I'm a insutrial engineering but now interested in web developer</p>
       </div>
@@ -94,8 +103,8 @@ function App() {
       <div className='card_skills' id='skills'>
         <div className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
           <h2>Skills</h2> <hr />
-          <p style={{color:'white'}}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
-          </div>
+          <p style={{ color: 'white' }}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
+        </div>
         <div className='box_skills'>
           <div className='box_skill'  >
             {skills.map(skill => <figure><img className='skill' src={skill} alt={skill} /></figure>)}
@@ -154,7 +163,7 @@ function App() {
             {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
           </div>
         </div>
-        <div className='text_project' style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{color:'white'}}>These are 4 of my projects front end developed in Academlo
+        <div className='text_project' style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
         </p>
         </div>
       </div>
