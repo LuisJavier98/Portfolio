@@ -93,7 +93,7 @@ function App() {
       </div>
       <div className='card_aboutMe' id='aboutMe' >
         <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>About me</h2>
-        <div data-aos="flip-left" className='card_personal'>
+        <div data-aos="flip-left" data-aos-duration="2000" className='card_personal'>
           <div>
             <img className='card_image' src={image} alt="" />
             <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>Hi , my name is Luis .I'm a industrial engineer , interested in the finantial markets and development webs , I'm 24 years old , I'm a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.
@@ -115,18 +115,18 @@ function App() {
       </div>
 
       <div className='card_skills' id='skills'>
-        <div data-aos="fade-right" data-aos-duration="2000"  className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
+        <div data-aos="zoom-in-up" data-aos-duration="2000" className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
           <h2>Skills</h2> <hr />
           <p style={{ color: 'white' }}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
         </div>
-        <div data-aos="fade-up-left" data-aos-duration="2000" className='box_skills'>
+        <div className='box_skills' data-aos="zoom-out-down" data-aos-duration="2000">
           <div className='box_skill'  >
             {skills.map(skill => <figure><img className='skill' src={skill} alt={skill} /></figure>)}
           </div>
         </div>
       </div>
       <div className='card_projects' id='projects'>
-        <div data-aos="fade-up-right" data-aos-duration="2000"   className='card_contain_projects'>
+        <div data-aos="fade-up-right" data-aos-duration="2000" className='card_contain_projects'>
           <div ref={SelectCard} className='card_contain' >
             <div ref={ProjectMove}
               className='projects'>
@@ -177,7 +177,7 @@ function App() {
             {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
           </div>
         </div>
-        <div data-aos="fade-up-left" data-aos-duration="2000"   className='text_project' style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
+        <div className='text_project' data-aos="zoom-in-up" data-aos-duration="2000" style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
         </p>
         </div>
       </div>
