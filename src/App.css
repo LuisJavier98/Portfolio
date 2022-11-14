@@ -62,7 +62,7 @@ button {
 }
 
 
-.card_close{
+.card_close {
   display: none;
   justify-content: flex-end;
 }
@@ -87,9 +87,10 @@ button {
   background-size: cover;
   position: relative;
 }
-.card_home button{
-display: none;
-transform: scale(1.5);
+
+.card_contain_button {
+  display: none;
+  transform: scale(1.5);
 }
 
 
@@ -415,7 +416,7 @@ footer {
     border-radius: 0px 0px 40px 40px;
   }
 
-  .card_header_inactive{
+  .card_header_inactive {
     display: flex;
     padding: 30px 0px;
     flex-direction: column;
@@ -425,25 +426,39 @@ footer {
     transition: all 1s ease;
     border-radius: 0px 0px 40px 40px;
   }
-  .card_close{
+
+  .card_close {
     display: block;
     text-align: end;
     width: 80%;
     cursor: pointer;
+    transform: scale(1.2);
   }
-  .card_home button{
-    position: absolute;
-    top: 30px;
-    right: 20px;
+
+  .card_contain_button {
+    position: fixed;
     background-color: transparent;
-    color: white;
     box-sizing: border-box;
     display: block;
+    height: 35px;
+    top: 0px;
+    width: 100%;
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+  }
+  .card_contain_button button{
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
     width: 20px;
     height: 20px;
-    cursor: pointer;
+    margin-right: 90px;
+    margin-top: 12px;
   }
-  
+
+
 
 }
 

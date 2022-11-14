@@ -12,18 +12,20 @@ import Projects from '../src/Pojects'
 import { skills } from '../src/Pojects'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-
+import Typewriter from 'typewriter-effect'
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 function App() {
-
   const [projectNumber, setprojectNumber] = useState(0)
   const [render, setrender] = useState()
   const [isActive, setisActive] = useState(false)
-
   const handleChange = () => setisActive(!isActive)
-
   const ProjectMove = useRef()
   const SelectCard = useRef()
+  const Reference = useRef()
+
+  AOS.init();
 
 
 
@@ -40,7 +42,8 @@ function App() {
     ProjectMove.current.style.transform = `translateX(${-25 * projectNumber}%)`
     ProjectMove.current.style.transition = 'all 1s ease'
     Childs = SelectCard.current.childNodes[0]
-  }, [render])
+  }
+    , [render])
 
 
 
@@ -57,32 +60,43 @@ function App() {
           <IoIosCloseCircleOutline />
         </li>
         <li>
-          <a href="#home">Home</a>
+          <a onClick={handleChange} href="#home">Home</a>
         </li>
         <li>
-          <a href="#aboutMe">About me </a>
+          <a onClick={handleChange} href="#aboutMe">About me </a>
         </li>
         <li>
-          <a href="#skills">Skills</a>
+          <a onClick={handleChange} href="#skills">Skills</a>
         </li>
         <li>
-          <a href="#projects">Projects</a>
+          <a onClick={handleChange} href="#projects">Projects</a>
         </li>
         <li>
-          <a href="#contactMe">Contact me</a>
+          <a onClick={handleChange} href="#contactMe">Contact me</a>
         </li>
       </header>
       <div className='card_home' id='home'>
-        <button onClick={handleChange}><AiOutlineMenu /></button>
+        <div ref={Reference} className='card_contain_button'>
+          <button onClick={handleChange}><AiOutlineMenu /></button>
+        </div>
         <h1 style={{ color: 'white' }}>Luis Javier</h1>
-        <p style={{ color: 'white', textAlign: 'center' }}>I'm a insutrial engineering but now interested in web developer</p>
+        <p style={{ color: 'white', textAlign: 'center' }}><Typewriter
+          options={{
+            strings: ['Web developer', 'Forex Trader', 'Industrial Engineer'],
+            autoStart: true,
+            loop: true,
+            delay: 50,
+            pauseFor: 1000
+          }}
+
+        /> </p>
       </div>
       <div className='card_aboutMe' id='aboutMe' >
         <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>About me</h2>
-        <div className='card_personal'>
+        <div data-aos="flip-left" className='card_personal'>
           <div>
             <img className='card_image' src={image} alt="" />
-            <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>Hi , my name is Luis .I'm a industrial engineering , interested in the finantial markets and development webs , I'm 24 years old , I'm a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.
+            <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>Hi , my name is Luis .I'm a industrial engineer , interested in the finantial markets and development webs , I'm 24 years old , I'm a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.
             </p>
           </div>
           <div className='card_education' >
@@ -101,18 +115,18 @@ function App() {
       </div>
 
       <div className='card_skills' id='skills'>
-        <div className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
+        <div data-aos="fade-right" data-aos-duration="2000"  className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
           <h2>Skills</h2> <hr />
           <p style={{ color: 'white' }}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
         </div>
-        <div className='box_skills'>
+        <div data-aos="fade-up-left" data-aos-duration="2000" className='box_skills'>
           <div className='box_skill'  >
             {skills.map(skill => <figure><img className='skill' src={skill} alt={skill} /></figure>)}
           </div>
         </div>
       </div>
       <div className='card_projects' id='projects'>
-        <div className='card_contain_projects'>
+        <div data-aos="fade-up-right" data-aos-duration="2000"   className='card_contain_projects'>
           <div ref={SelectCard} className='card_contain' >
             <div ref={ProjectMove}
               className='projects'>
@@ -163,7 +177,7 @@ function App() {
             {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
           </div>
         </div>
-        <div className='text_project' style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
+        <div data-aos="fade-up-left" data-aos-duration="2000"   className='text_project' style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
         </p>
         </div>
       </div>
