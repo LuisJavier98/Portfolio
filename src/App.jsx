@@ -1,6 +1,7 @@
 import './App.css'
 import video from '../src/Video/Smoke.mp4'
 import image from '../src/Images/Foto.png'
+import CV from '../src/CV/CV_Luis_Burga.pdf'
 import { BsInstagram } from 'react-icons/bs'
 import { BsGithub } from 'react-icons/bs'
 import { AiOutlineLinkedin } from 'react-icons/ai'
@@ -12,9 +13,11 @@ import Projects from '../src/Pojects'
 import { skills } from '../src/Pojects'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
+import { BsDownload } from 'react-icons/bs'
 import Typewriter from 'typewriter-effect'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+
 
 function App() {
   const [projectNumber, setprojectNumber] = useState(0)
@@ -25,32 +28,32 @@ function App() {
   const SelectCard = useRef()
   const Reference = useRef()
 
-  AOS.init();
 
-
+  AOS.init({
+    mirror: false,
+    offset: 300,
+    easing: 'ease'
+  });
 
   const ProjectNext = e => {
     e.preventDefault()
-    setprojectNumber(e.target.id)
+    setprojectNumber(Number(e.target.id))
     setrender(e.target.id)
   }
-
 
   let Childs
 
   useEffect(() => {
     ProjectMove.current.style.transform = `translateX(${-25 * projectNumber}%)`
-    ProjectMove.current.style.transition = 'all 1s ease'
+    ProjectMove.current.style.transition = 'all 250ms ease'
     Childs = SelectCard.current.childNodes[0]
   }
     , [render])
 
-
-
   const ElementS = (altitude, i) => {
     Childs.childNodes[i].childNodes[1].style.height = `${altitude}%`
-  }
 
+  }
 
   return (
     <div className="App">
@@ -93,13 +96,13 @@ function App() {
       </div>
       <div className='card_aboutMe' id='aboutMe' >
         <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>About me</h2>
-        <div data-aos="flip-left" data-aos-duration="2000" className='card_personal'>
+        <div id='particles-js' data-aos="flip-left" data-aos-duration="2000" data-aos-once="false" data-aos-mirror="true" className='card_personal'>
           <div>
             <img className='card_image' src={image} alt="" />
             <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>Hi , my name is Luis .I'm a industrial engineer , interested in the finantial markets and development webs , I'm 24 years old , I'm a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.
             </p>
           </div>
-          <div className='card_education' >
+          <div style={{ textAlign: 'center', marginTop: '20px' }} className='card_education' >
             <p>Education</p>
             <div>
               <p style={{ color: 'gray' }}>2022-Currently</p>
@@ -109,24 +112,31 @@ function App() {
               <p style={{ color: 'gray' }}>2015-2021</p>
               <p>Graduated from the Industrial Engineering career at the University of Lima</p>
             </div>
+            <div className='card_buttons_download'>
+              <div className='card_box_download'>
+                <button className='button_download'><a style={{ color: 'white', textDecoration: 'none' }} href={CV} download>Download CV</a></button>
+                <button className='button_download_2'><a style={{ color: 'white' }} href={CV} download><BsDownload style={{transform:'scale(1.4)'}} /></a></button>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
 
       <div className='card_skills' id='skills'>
-        <div data-aos="zoom-in-up" data-aos-duration="2000" className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
+        <div data-aos="zoom-in-up" data-aos-duration="2000"
+          className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
           <h2>Skills</h2> <hr />
           <p style={{ color: 'white' }}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
         </div>
-        <div className='box_skills' data-aos="zoom-out-down" data-aos-duration="2000">
+        <div className='box_skills' data-aos="fade-up" data-aos-duration="2000">
           <div className='box_skill'  >
             {skills.map(skill => <figure><img className='skill' src={skill} alt={skill} /></figure>)}
           </div>
         </div>
       </div>
       <div className='card_projects' id='projects'>
-        <div data-aos="fade-up-right" data-aos-duration="2000" className='card_contain_projects'>
+        <div data-aos="fade-up" data-aos-duration="2000" className='card_contain_projects'>
           <div ref={SelectCard} className='card_contain' >
             <div ref={ProjectMove}
               className='projects'>
@@ -139,8 +149,8 @@ function App() {
                       </h2>
                       <p style={{ color: 'red' }}>Web page focus on searching pokemons by type and name </p>
                       <div style={{ display: 'flex', gap: '8%' }}>
-                        <a href="https://fluffy-tarsier-d169ec.netlify.app/#/pokedex" target={'_blank'}>Demo</a>
-                        <a href="https://github.com/LuisJavier98/Pokedex" target={'_blank'}>Code</a>
+                        <a href="https://fluffy-tarsier-d169ec.netlify.app/#/pokedex" target={'_blank'}><button>Demo</button></a>
+                        <a href="https://github.com/LuisJavier98/Pokedex" target={'_blank'}> <button>Code</button></a>
                       </div>
                     </div>
                     : indice == 1 ?
@@ -148,8 +158,8 @@ function App() {
                         <h2 style={{ textAlign: 'center' }} >E-commerce</h2>
                         <p style={{ color: 'red' }}></p>
                         <div style={{ display: 'flex', gap: '8%' }}>
-                          <a href="https://jade-caramel-402266.netlify.app" target={'_blank'}>Demo</a>
-                          <a href="https://github.com/LuisJavier98/Entregable-6" target={'_blank'}>Code</a>
+                          <a href="https://jade-caramel-402266.netlify.app" target={'_blank'}><button>Demo</button></a>
+                          <a href="https://github.com/LuisJavier98/Entregable-6" target={'_blank'}><button>Code</button></a>
                         </div>
                       </div>
                       : indice == 2 ?
@@ -157,16 +167,16 @@ function App() {
                           <h2 style={{ textAlign: 'center' }} >Rick and Morty Api</h2>
                           <p style={{ color: 'red' }}></p>
                           <div style={{ display: 'flex', gap: '8%' }}>
-                            <a href="https://harmonious-puffpuff-fe0efd.netlify.app" target={'_blank'}>Demo</a>
-                            <a href="https://github.com/LuisJavier98/Entregable-3" target={'_blank'}>Code</a>
+                            <a href="https://harmonious-puffpuff-fe0efd.netlify.app" target={'_blank'}><button>Demo</button></a>
+                            <a href="https://github.com/LuisJavier98/Entregable-3" target={'_blank'}><button>Code</button></a>
                           </div>
                         </div>
                         : <div className='card_subida'>
                           <h2 style={{ textAlign: 'center' }} >Weather Api</h2>
                           <p style={{ color: 'red' }}></p>
                           <div style={{ display: 'flex', gap: '8%' }}>
-                            <a href="https://golden-licorice-3c5c45.netlify.app" target={'_blank'}>Demo</a>
-                            <a href="https://github.com/LuisJavier98/Segundo-entrgable" target={'_blank'}>Code</a>
+                            <a href="https://golden-licorice-3c5c45.netlify.app" target={'_blank'}><button>Demo</button></a>
+                            <a href="https://github.com/LuisJavier98/Segundo-entrgable" target={'_blank'}><button>Code</button></a>
                           </div>
                         </div>
                 }

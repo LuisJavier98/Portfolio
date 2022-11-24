@@ -5,7 +5,6 @@ html {
 body {
   margin: 0px;
   width: 100%;
-  overflow-x : hidden;
 }
 
 video {
@@ -77,6 +76,10 @@ button {
   font-size: 20px;
 }
 
+.card_header li a:hover {
+  text-decoration: line-through solid white
+}
+
 .card_home {
   display: flex;
   flex-direction: column;
@@ -133,6 +136,71 @@ button {
   justify-content: center;
   color: rgb(255, 255, 255);
 }
+
+.card_buttons_download {
+  height: 80px;
+  box-sizing: border-box;
+  perspective: 700px;
+  margin-top: 25px;
+}
+
+.card_box_download {
+  position: relative;
+  height: 100%;
+  width: 150px;
+  margin: auto auto;
+  transform-style: preserve-3d;
+  transition: all 500ms ease;
+}
+
+.card_box_download:hover {
+  transform: rotateX(90deg);
+  transition: all 500ms ease;
+}
+
+.button_download {
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgb(55, 52, 52);
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.button_download_2 {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(55, 52, 52);
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  box-sizing: border-box;
+  transform: translateY(25px) rotateX(-90deg)translateY(-10px)
+}
+
+.button_download a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button_download_2 a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 .card_skills {
   min-height: 100vh;
@@ -292,7 +360,6 @@ button {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 
 }
 
@@ -310,18 +377,38 @@ button {
   position: absolute;
   bottom: 0px;
   z-index: 1;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
   transition: all 1s ease;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  gap: 5%
+  gap: 5%;
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+}
+
+.card_subida p {
+  text-align: center;
 }
 
 .card_subida a {
   text-decoration: none;
+}
+
+.card_subida div {
+  display: flex;
+}
+
+.card_subida a button {
+  width: 60px;
+  height: 25px;
+  background-color: rgb(55, 52, 52);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+
 }
 
 .buttonProjectInactive {
@@ -430,10 +517,11 @@ footer {
 
   .card_close {
     display: block;
-    text-align: end;
-    width: 80%;
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.5);
+    position: absolute;
+    top: 7%;
+    right: 6%;
   }
 
   .card_contain_button {
@@ -447,19 +535,19 @@ footer {
     backdrop-filter: blur(15px);
     display: flex;
     align-items: center;
+    z-index: 1;
   }
-  .card_contain_button button{
+
+  .card_contain_button button {
     background-color: transparent;
     color: white;
     border: none;
     cursor: pointer;
     width: 20px;
     height: 20px;
-    margin-right: 90px;
+    margin-right: 20%;
     margin-top: 12px;
   }
-
-
 
 }
 
