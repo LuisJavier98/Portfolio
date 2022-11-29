@@ -1,0 +1,622 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px;
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+}
+
+:root {
+  --heigth: 50px
+}
+
+p {
+  margin: 0;
+  color: rgb(58, 54, 54);
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 0;
+}
+
+p {
+  font-size: 25px;
+}
+
+button {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+
+.card_header,
+.card_header_inactive {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  list-style: none;
+  gap: 3%;
+  height: 30px;
+  position: fixed;
+  right: 0px;
+  padding: 20px 30px;
+  background-color: transparent;
+  width: 100%;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+}
+
+
+.card_close {
+  display: none;
+  justify-content: flex-end;
+}
+
+.card_header li a,
+.card_header_inactive li a {
+  text-decoration: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: .4px;
+  color: white;
+  font-size: 20px;
+}
+
+.card_header li a:hover {
+  text-decoration: line-through solid white
+}
+
+.card_home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.card_contain_button {
+  display: none;
+  transform: scale(1.5);
+}
+
+
+.card_aboutMe {
+  min-height: 100vh;
+  background: linear-gradient(rgb(0, 0, 0), rgb(87, 82, 82));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card_personal {
+  background-size: 100% 100%;
+  display: grid;
+  grid-template-columns: var(--grid);
+  margin: 10px auto;
+  border-radius: 30px;
+  background-color: rgb(182, 182, 202);
+  width: 90%;
+  height: 70%;
+  box-sizing: border-box;
+  padding: 5%;
+  box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card_image {
+  max-width: 50%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
+.card_education {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+.card_buttons_download {
+  height: 80px;
+  box-sizing: border-box;
+  perspective: 700px;
+  margin-top: 25px;
+}
+
+.card_box_download {
+  position: relative;
+  height: 100%;
+  width: 150px;
+  margin: auto auto;
+  transform-style: preserve-3d;
+  transition: all 500ms ease;
+}
+
+.card_box_download:hover {
+  transform: rotateX(90deg);
+  transition: all 500ms ease;
+}
+
+.button_download {
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgb(55, 52, 52);
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.button_download_2 {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(55, 52, 52);
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  box-sizing: border-box;
+  transform: translateY(25px) rotateX(-90deg)translateY(-10px)
+}
+
+.button_download a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button_download_2 a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.card_skills {
+  min-height: 100vh;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgb(87, 82, 82));
+  display: grid;
+  grid-template-columns: var(--grid);
+
+}
+
+.text_skills {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5%;
+  text-align: center;
+  margin: auto auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.box_skills {
+  width: 100%;
+  height: var(--boxSkillsHeigth);
+  box-sizing: border-box;
+  padding: 5%;
+  border-radius: 30px 30px 30px 30px;
+  box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
+  perspective: 1500px;
+  margin: auto auto;
+  position: relative;
+}
+
+
+.box_skill {
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotate 10s infinite linear;
+  transform-style: preserve-3d;
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+
+}
+
+:root {
+  --figureHeight: 70%;
+  --figureWidth: 40%;
+  --translate: 250px;
+  --grid: repeat(2, 1fr);
+  --gridProject: repeat(2, 1fr);
+  --boxSkillsHeigth: 60%
+}
+
+.box_skill figure {
+  width: var(--figureWidth);
+  height: var(--figureHeight);
+  right: 30%;
+  overflow: hidden;
+  margin: auto auto;
+  position: absolute;
+}
+
+.box_skill img {
+  display: block;
+  margin: auto auto;
+  width: 80%;
+  height: 100%;
+}
+
+.box_skill figure:nth-child(1) {
+  transform: rotateY(0deg) translateZ(var(--translate));
+}
+
+.box_skill figure:nth-child(2) {
+  transform: rotateY(60deg) translateZ(var(--translate));
+}
+
+.box_skill figure:nth-child(3) {
+  transform: rotateY(120deg) translateZ(var(--translate));
+}
+
+.box_skill figure:nth-child(4) {
+  transform: rotateY(180deg) translateZ(var(--translate));
+}
+
+.box_skill figure:nth-child(5) {
+  transform: rotateY(240deg) translateZ(var(--translate));
+}
+
+.box_skill figure:nth-child(6) {
+  transform: rotateY(300deg) translateZ(var(--translate));
+}
+
+
+.card_projects {
+  min-height: 100vh;
+  background: linear-gradient(rgb(0, 0, 0), rgb(87, 82, 82));
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: grid;
+  grid-template-columns: var(--gridProject);
+}
+
+.text_project {
+  width: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  margin: auto auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card_contain_projects {
+  width: 100%;
+  border-radius: 30px 30px 30px 30px;
+  box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
+  box-sizing: border-box;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 1s ease;
+  height: var(--boxSkillsHeigth);
+  margin: auto auto;
+}
+
+
+.card_contain {
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.projects {
+  display: flex;
+  width: 400%;
+  height: 100%;
+}
+
+.project {
+  width: 100%;
+  position: relative;
+}
+
+.project img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+}
+
+.card_contain_buttonProject {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  ;
+}
+
+.card_subida {
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+  backdrop-filter: blur(30px);
+  transition: all 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 5%;
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+}
+
+.card_subida p {
+  text-align: center;
+}
+
+.card_subida a {
+  text-decoration: none;
+}
+
+.card_subida div {
+  display: flex;
+}
+
+.card_subida a button {
+  width: 60px;
+  height: 25px;
+  background-color: rgb(55, 52, 52);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.buttonProjectInactive {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin: 0px 2%;
+}
+
+.buttonProjectActive {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin: 0px 2%;
+  background-color: red;
+}
+
+footer {
+  background-color: rgb(52, 49, 49);
+  height: 120px;
+  margin-top: 30px;
+  min-height: 100vh;
+}
+
+$boxShadow: inset 11px 0px 18px -2px rgba(0, 0, 0, 0.64);
+$color: white;
+$ancho: 100%-40%;
+
+@mixin foot($padding: none, $direction: none) {
+  display: flex;
+  flex-direction: $direction;
+  width: $ancho;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-top: $padding;
+
+}
+
+.card_contactMe {
+  margin: 0;
+
+  .card_info {
+    @include foot(50px, column);
+
+    label {
+      color: $color;
+      font-weight: 800;
+      margin: 10px auto;
+    }
+
+    input {
+      border-radius: 10px;
+      box-shadow: inset;
+      width: 100%;
+      height: 25px;
+      box-shadow: $boxShadow
+    }
+
+    .card_icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5%;
+
+      a {
+        text-decoration: none;
+        color: white;
+        transform: scale(1.5);
+      }
+    }
+  }
+
+}
+
+
+
+
+
+@media (max-width:1240px) {
+
+
+  :root {
+    --figureHeight: 60%;
+    --figureWidth: 40%;
+    --translate: 200px;
+  }
+}
+
+@media (max-width:950px) {
+
+
+  :root {
+    --figureHeight: 50%;
+    --figureWidth: 40%;
+    --translate: 150px;
+  }
+}
+
+@media (max-width:700px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 80%;
+    --figureWidth: 40%;
+    --translate: 180px;
+    --gridProject: repeat(1, 1fr);
+    --boxSkillsHeigth: 100%
+  }
+
+  .text_project {
+    order: -1;
+  }
+
+  .card_header {
+    display: flex;
+    padding: 30px 0px;
+    flex-direction: column;
+    top: 0%;
+    height: auto;
+    transition: all 500ms ease;
+    border-radius: 0px 0px 40px 40px;
+  }
+
+  .card_header_inactive {
+    display: flex;
+    padding: 30px 0px;
+    flex-direction: column;
+    position: absolute;
+    top: -400%;
+    height: 0px;
+    transition: all 1s ease;
+    border-radius: 0px 0px 40px 40px;
+  }
+
+  .card_close {
+    display: block;
+    cursor: pointer;
+    transform: scale(1.5);
+    position: absolute;
+    top: 7%;
+    right: 6%;
+  }
+
+  .card_contain_button {
+    position: fixed;
+    background-color: transparent;
+    box-sizing: border-box;
+    display: block;
+    height: 35px;
+    top: 0px;
+    width: 100%;
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .card_contain_button button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-right: 20%;
+    margin-top: 12px;
+  }
+
+}
+
+@media (max-width:450px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 50%;
+    --figureWidth: 40%;
+    --translate: 150px;
+  }
+}
+
+@media (max-width:360px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 40%;
+    --figureWidth: 40%;
+    --translate: 120px;
+  }
+}
+
+@media (max-width:300px) {
+
+
+  :root {
+    --grid: repeat(1, 1fr);
+    --figureHeight: 30%;
+    --figureWidth: 40%;
+    --translate: 100px;
+  }
+}

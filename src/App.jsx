@@ -192,7 +192,22 @@ function App() {
         </div>
       </div>
       <footer className='card_contactMe' id='contactMe'>
-        <div>
+        <div className='card_info'>
+          Contact Me
+          <label htmlFor="">First Name</label>
+          <input type="text" />
+          <label htmlFor="">Last Name</label>
+          <input type="text" />
+          <label htmlFor="">Email</label>
+          <input type="text" />
+          <label htmlFor="">Phone Number</label>
+          <input type="text" />
+          <label htmlFor="">Message</label>
+          <input type="text" />
+
+
+        </div>
+        <div className='card_icons'>
           <a href="https://www.linkedin.com/in/luis-javier-burga-campos-97bb77186/" target={'_blank'}><AiOutlineLinkedin /></a>
           <a href="https://github.com/LuisJavier98" target={'_blank'}><BsGithub /></a>
           <a href="https://www.instagram.com/luisjavier.98/" target={'_blank'}><BsInstagram /></a>
