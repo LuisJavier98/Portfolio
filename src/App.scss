@@ -50,15 +50,16 @@ button {
   justify-content: end;
   list-style: none;
   gap: 3%;
-  height: 30px;
+  height: 8vh;
   position: fixed;
   right: 0px;
   padding: 20px 30px;
   background-color: transparent;
   width: 100%;
   z-index: 2;
-  backdrop-filter: blur(10px);
+  background-color:black;
   font-weight: 500;
+  box-sizing: border-box;
 }
 
 
@@ -105,6 +106,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 12vh;
 }
 
 
@@ -203,10 +205,14 @@ button {
 
 
 .card_skills {
-  min-height: 100vh;
-  background: linear-gradient(to top, rgb(0, 0, 0), rgb(87, 82, 82));
+  height: 90vh;
+  padding-top: 10vh;
+  background: linear-gradient(to top, #181818, rgb(87, 82, 82));
   display: grid;
   grid-template-columns: var(--grid);
+  align-items: flex-end;
+  justify-content: end;
+  
 
 }
 
@@ -225,10 +231,12 @@ button {
   box-sizing: border-box;
   padding: 5%;
   border-radius: 30px 30px 30px 30px;
-  box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
+  box-shadow: -11px 17px 14px 0px rgba(0,0,0,0.75);
   perspective: 1500px;
   margin: auto auto;
   position: relative;
+  background-color: rgb(182, 182, 202);
+  border: 3px solid rgb(0, 0, 0);
 }
 
 
@@ -282,36 +290,24 @@ button {
   height: 100%;
 }
 
-.box_skill figure:nth-child(1) {
-  transform: rotateY(0deg) translateZ(var(--translate));
-}
 
-.box_skill figure:nth-child(2) {
-  transform: rotateY(60deg) translateZ(var(--translate));
-}
+$Images: 6;
+$MaxNumber: calc($Images);
+$deg: calc(360/calc($Images));
+@debug $deg;
+@debug $MaxNumber;
 
-.box_skill figure:nth-child(3) {
-  transform: rotateY(120deg) translateZ(var(--translate));
-}
-
-.box_skill figure:nth-child(4) {
-  transform: rotateY(180deg) translateZ(var(--translate));
-}
-
-.box_skill figure:nth-child(5) {
-  transform: rotateY(240deg) translateZ(var(--translate));
-}
-
-.box_skill figure:nth-child(6) {
-  transform: rotateY(300deg) translateZ(var(--translate));
+@for $var from 0 to $MaxNumber {
+  .box_skill figure:nth-child(#{$var + 1}) {
+    transform: rotateY(#{$var*$deg}deg)translateZ(var(--translate))
+  }
 }
 
 
 .card_projects {
   min-height: 100vh;
-  background: linear-gradient(rgb(0, 0, 0), rgb(87, 82, 82));
-  padding-top: 70px;
-  padding-bottom: 70px;
+  background: linear-gradient(#181818, rgb(87, 82, 82));
+  padding-top: 8vh;
   display: grid;
   grid-template-columns: var(--gridProject);
 }
@@ -327,7 +323,7 @@ button {
 .card_contain_projects {
   width: 100%;
   border-radius: 30px 30px 30px 30px;
-  box-shadow: 10px 10px 25px 0px rgba(212, 198, 198, 0.75);
+  box-shadow: 11px 17px 14px 0px rgba(0,0,0,0.75);
   box-sizing: border-box;
   padding: 5%;
   display: flex;
@@ -336,6 +332,8 @@ button {
   transition: all 1s ease;
   height: var(--boxSkillsHeigth);
   margin: auto auto;
+  background-color: rgb(182, 182, 202);
+  border: 3px solid black;
 }
 
 
@@ -451,19 +449,27 @@ $ancho: 100%-40%;
   justify-content: center;
   margin: auto;
   padding-top: $padding;
-
 }
 
 .card_contactMe {
   margin: 0;
+  background: linear-gradient(to top,#181818, rgb(87, 82, 82));
 
   .card_info {
     @include foot(50px, column);
+
+    h2 {
+      color: white;
+      font-size: var(h1);
+      font-family: 'Courier New', Courier, monospace;
+
+    }
 
     label {
       color: $color;
       font-weight: 800;
       margin: 10px auto;
+      font-family: 'Courier New', Courier, monospace;
     }
 
     input {
@@ -471,24 +477,34 @@ $ancho: 100%-40%;
       box-shadow: inset;
       width: 100%;
       height: 25px;
-      box-shadow: $boxShadow
+      box-shadow: $boxShadow;
+      font-size: 20px;
     }
 
-    .card_icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 5%;
-
-      a {
-        text-decoration: none;
-        color: white;
-        transform: scale(1.5);
-      }
+    textarea {
+      border-radius: 10px;
+      box-shadow: inset;
+      width: 100%;
+      height: 120px;
+      box-shadow: $boxShadow;
+      font-size: 20px;
     }
   }
 
+  .card_icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+
+    a {
+      text-decoration: none;
+      color: white;
+      transform: scale(1.5);
+      margin: 30px 0px;
+    }
+  }
 }
 
 
@@ -566,13 +582,14 @@ $ancho: 100%-40%;
     background-color: transparent;
     box-sizing: border-box;
     display: block;
-    height: 35px;
+    height: 6vh;
     top: 0px;
     width: 100%;
     backdrop-filter: blur(15px);
     display: flex;
     align-items: center;
     z-index: 1;
+    background-color: rgb(35, 33, 33);
   }
 
   .card_contain_button button {

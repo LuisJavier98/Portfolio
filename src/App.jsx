@@ -193,7 +193,7 @@ function App() {
       </div>
       <footer className='card_contactMe' id='contactMe'>
         <div className='card_info'>
-          Contact Me
+          <h2> Contact Me</h2>
           <label htmlFor="">First Name</label>
           <input type="text" />
           <label htmlFor="">Last Name</label>
@@ -203,7 +203,7 @@ function App() {
           <label htmlFor="">Phone Number</label>
           <input type="text" />
           <label htmlFor="">Message</label>
-          <input type="text" />
+          <textarea name="" id="" cols="30" rows="10"></textarea>
 
 
         </div>
