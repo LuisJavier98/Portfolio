@@ -27,7 +27,23 @@ function App() {
   const ProjectMove = useRef()
   const SelectCard = useRef()
   const Reference = useRef()
+  const Header = useRef()
 
+  window.onscroll = function () {
+    console.log(scrollY)
+    if (scrollY > 602) {
+      Header.current.style.backgroundColor = '#181818'
+      Header.current.style.backdropFilter = 'blur(0px)'
+      Reference.current.style.backgroundColor = '#181818'
+      Reference.current.style.backdropFilter = 'blur(0px)'
+    }
+    else {
+      Header.current.style.backdropFilter = 'blur(20px)'
+      Header.current.style.backgroundColor = 'transparent'
+      Reference.current.style.backdropFilter = 'blur(20px)'
+      Reference.current.style.backgroundColor = 'transparent'
+    }
+  }
 
   AOS.init({
     mirror: false,
@@ -58,7 +74,7 @@ function App() {
   return (
     <div className="App">
       <video src={video} autoPlay muted loop></video>
-      <header className={isActive ? 'card_header' : 'card_header_inactive'}>
+      <header ref={Header} className={isActive ? 'card_header' : 'card_header_inactive'}>
         <li onClick={handleChange} className='card_close' style={{ color: 'white' }}>
           <IoIosCloseCircleOutline />
         </li>
@@ -115,7 +131,7 @@ function App() {
             <div className='card_buttons_download'>
               <div className='card_box_download'>
                 <button className='button_download'><a style={{ color: 'white', textDecoration: 'none' }} href={CV} download>Download CV</a></button>
-                <button className='button_download_2'><a style={{ color: 'white' }} href={CV} download><BsDownload style={{transform:'scale(1.4)'}} /></a></button>
+                <button className='button_download_2'><a style={{ color: 'white' }} href={CV} download><BsDownload style={{ transform: 'scale(1.4)' }} /></a></button>
               </div>
             </div>
           </div>

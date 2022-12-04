@@ -12,4 +12,4 @@ import SASS from '../src/Images/SASS.png'
 const Projects = [Pokedex, Ecommerce, Rick, Weather]
 export default Projects
 
-export const skills =[HTML,CSS,JS,REACT,Redux,SASS]
+export const skills =[HTML,CSS,SASS,JS,REACT,Redux]
