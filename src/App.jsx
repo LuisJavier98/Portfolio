@@ -208,21 +208,22 @@ function App() {
         </div>
       </div>
       <footer className='card_contactMe' id='contactMe'>
-        <div className='card_info'>
+        <form action='https://formsubmit.co/luisjavier_2705@hotmail.com' method='POST' className='card_info'>
           <h2> Contact Me</h2>
           <label htmlFor="">First Name</label>
-          <input type="text" />
+          <input type="text" name='first_name' required />
           <label htmlFor="">Last Name</label>
-          <input type="text" />
+          <input type="text" name='last_name' required />
           <label htmlFor="">Email</label>
-          <input type="text" />
-          <label htmlFor="">Phone Number</label>
-          <input type="text" />
+          <input type="email" name='email' required />
+          <label htmlFor="number">Phone Number</label>
+          <input type="number" name='number' required />
           <label htmlFor="">Message</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <textarea name="message" id="" cols="30" rows="10" required></textarea>
+          <button type='submit' className='button_send'>Send</button>
 
 
-        </div>
+        </form>
         <div className='card_icons'>
           <a href="https://www.linkedin.com/in/luis-javier-burga-campos-97bb77186/" target={'_blank'}><AiOutlineLinkedin /></a>
           <a href="https://github.com/LuisJavier98" target={'_blank'}><BsGithub /></a>

@@ -7,11 +7,13 @@ body {
   margin: 0px;
   width: 100%;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
   background-color: #181818;
   width: 15px;
 }
-body::-webkit-scrollbar-thumb{
+
+body::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 10px;
 }
@@ -469,7 +471,7 @@ $ancho: 100%-40%;
   padding-top: 8vh;
   min-height: 100vh;
 
-  .card_info {
+  form {
     @include foot(50px, column);
 
     h2 {
@@ -504,6 +506,18 @@ $ancho: 100%-40%;
       box-shadow: $boxShadow;
       font-size: 20px;
     }
+
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #605c5c;
+    }
   }
 
   .card_icons {
@@ -521,9 +535,6 @@ $ancho: 100%-40%;
     }
   }
 }
-
-
-
 
 
 @media (max-width:1240px) {
