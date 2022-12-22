@@ -26,12 +26,14 @@ video {
 }
 
 :root {
-  --heigth: 50px
+  --heigth: 50px;
+  --p: 25px
 }
 
 p {
   margin: 0;
   color: rgb(58, 54, 54);
+  font-size: var(--p);
 }
 
 h1 {
@@ -42,10 +44,6 @@ h1 {
 h2 {
   font-size: 30px;
   margin: 0;
-}
-
-p {
-  font-size: 25px;
 }
 
 button {
@@ -231,7 +229,7 @@ button {
 }
 
 .text_skills {
-  width: 100%;
+  width: 80%;
   box-sizing: border-box;
   padding: 5%;
   text-align: center;
@@ -240,7 +238,7 @@ button {
 }
 
 .box_skills {
-  width: 100%;
+  width: 80%;
   height: var(--boxSkillsHeigth);
   box-sizing: border-box;
   padding: 5%;
@@ -279,10 +277,14 @@ button {
 
 }
 
+$figureHeigth: 70%;
+$figureWidth: 40%;
+$translate: 250px;
+
 :root {
-  --figureHeight: 70%;
-  --figureWidth: 40%;
-  --translate: 250px;
+  --figureHeight: #{$figureHeigth};
+  --figureWidth: #{$figureWidth};
+  --translate: #{$translate};
   --grid: repeat(2, 1fr);
   --gridProject: repeat(2, 1fr);
   --boxSkillsHeigth: 60%
@@ -308,6 +310,7 @@ button {
 $Images: 6;
 $MaxNumber: calc($Images);
 $deg: calc(360/calc($Images));
+$display: grid;
 @debug $deg;
 @debug $MaxNumber;
 
@@ -322,12 +325,12 @@ $deg: calc(360/calc($Images));
   min-height: 100vh;
   background: linear-gradient(#181818, rgb(87, 82, 82));
   padding-top: 8vh;
-  display: grid;
+  display: $display;
   grid-template-columns: var(--gridProject);
 }
 
 .text_project {
-  width: 100%;
+  width: 80%;
   padding: 5%;
   box-sizing: border-box;
   margin: auto auto;
@@ -335,7 +338,7 @@ $deg: calc(360/calc($Images));
 }
 
 .card_contain_projects {
-  width: 100%;
+  width: 80%;
   border-radius: 30px 30px 30px 30px;
   box-shadow: 11px 17px 14px 0px rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
@@ -469,16 +472,18 @@ $ancho: 100%-40%;
   margin: 0;
   background: linear-gradient(to top, #181818, rgb(87, 82, 82));
   padding-top: 8vh;
-  min-height: 100vh;
+  height: auto;
 
   form {
-    @include foot(50px, column);
+    @include foot(20px, column);
+    margin-bottom: 40px;
 
     h2 {
       color: white;
       font-size: var(h1);
       font-family: 'Courier New', Courier, monospace;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
+      text-align: center;
 
     }
 
@@ -492,19 +497,21 @@ $ancho: 100%-40%;
     input {
       border-radius: 10px;
       box-shadow: inset;
-      width: 100%;
+      width: 70%;
       height: 25px;
       box-shadow: $boxShadow;
       font-size: 20px;
+      font-weight: 600;
     }
 
     textarea {
       border-radius: 10px;
       box-shadow: inset;
-      width: 100%;
+      width: 70%;
       height: 120px;
       box-shadow: $boxShadow;
       font-size: 20px;
+      resize: none;
     }
 
     button {
@@ -526,6 +533,7 @@ $ancho: 100%-40%;
     justify-content: center;
     align-items: center;
     gap: 5%;
+    background-color: rgb(24, 24, 24);
 
     a {
       text-decoration: none;
@@ -534,6 +542,12 @@ $ancho: 100%-40%;
       margin: 30px 0px;
     }
   }
+
+  blockquote {
+    background-color: rgb(24, 24, 24);
+    padding: 0px 0px 20px 0px;
+    font-weight: 900;
+  }
 }
 
 
@@ -541,32 +555,35 @@ $ancho: 100%-40%;
 
 
   :root {
-    --figureHeight: 60%;
-    --figureWidth: 40%;
-    --translate: 200px;
+    --figureHeight: calc(#{$figureHeigth}* 0.7);
+    --figureWidth: calc(#{$figureWidth} * 0.9);
+    --translate: calc(#{$translate} * 0.7);
+    --p: 22px
   }
 }
 
 @media (max-width:950px) {
 
-
   :root {
-    --figureHeight: 50%;
-    --figureWidth: 40%;
-    --translate: 150px;
+    --figureHeight: calc(#{$figureHeigth}* 0.5);
+    --figureWidth: calc(#{$figureWidth} * 0.8);
+    --translate: calc(#{$translate} * 0.5);
+    --p: 20px
   }
 }
 
 @media (max-width:700px) {
 
+  $display: flex;
 
   :root {
-    --grid: repeat(1, 1fr);
-    --figureHeight: 80%;
-    --figureWidth: 40%;
-    --translate: 180px;
+    --grid: none;
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 0.8);
+    --translate: calc(#{$translate} * 0.6);
     --gridProject: repeat(1, 1fr);
-    --boxSkillsHeigth: 100%
+    --boxSkillsHeigth: 100%;
+    --p: 18px
   }
 
   .text_project {
@@ -588,9 +605,8 @@ $ancho: 100%-40%;
     padding: 30px 0px;
     flex-direction: column;
     position: absolute;
-    top: -400%;
-    height: 0px;
-    transition: all 1s ease;
+    top: -100%;
+    transition: all 2000ms ease;
     border-radius: 0px 0px 40px 40px;
   }
 
@@ -634,12 +650,11 @@ $ancho: 100%-40%;
 
 @media (max-width:450px) {
 
-
   :root {
-    --grid: repeat(1, 1fr);
-    --figureHeight: 50%;
-    --figureWidth: 40%;
-    --translate: 150px;
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 0.8);
+    --translate: calc(#{$translate} * 0.5);
+    --p: 15px
   }
 }
 
@@ -647,10 +662,10 @@ $ancho: 100%-40%;
 
 
   :root {
-    --grid: repeat(1, 1fr);
-    --figureHeight: 40%;
-    --figureWidth: 40%;
-    --translate: 120px;
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 0.7);
+    --translate: calc(#{$translate} * 0.4);
+    --p: 12px
   }
 }
 
@@ -658,9 +673,9 @@ $ancho: 100%-40%;
 
 
   :root {
-    --grid: repeat(1, 1fr);
-    --figureHeight: 30%;
-    --figureWidth: 40%;
-    --translate: 100px;
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 0.7);
+    --translate: calc(#{$translate} * 0.3);
+    --p: 10px
   }
 }

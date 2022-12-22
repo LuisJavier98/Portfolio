@@ -29,9 +29,11 @@ function App() {
   const Reference = useRef()
   const Header = useRef()
 
+  let height = window.innerHeight
+
+
   window.onscroll = function () {
-    console.log(scrollY)
-    if (scrollY > 602) {
+    if (scrollY > (height - 10)) {
       Header.current.style.backgroundColor = '#181818'
       Header.current.style.backdropFilter = 'blur(0px)'
       Reference.current.style.backgroundColor = '#181818'
@@ -47,7 +49,7 @@ function App() {
 
   AOS.init({
     mirror: false,
-    offset: 300,
+    offset: 200,
     easing: 'ease'
   });
 
@@ -211,15 +213,15 @@ function App() {
         <form action='https://formsubmit.co/luisjavier_2705@hotmail.com' method='POST' className='card_info'>
           <h2> Contact Me</h2>
           <label htmlFor="">First Name</label>
-          <input type="text" name='first_name' required />
+          <input type="text" name='first_name' required autoComplete='off' />
           <label htmlFor="">Last Name</label>
-          <input type="text" name='last_name' required />
+          <input type="text" name='last_name' required autoComplete='off'/>
           <label htmlFor="">Email</label>
-          <input type="email" name='email' required />
+          <input type="email" name='email' required autoComplete='off' />
           <label htmlFor="number">Phone Number</label>
-          <input type="number" name='number' required />
+          <input type="number" name='number' required autoComplete='off' />
           <label htmlFor="">Message</label>
-          <textarea name="message" id="" cols="30" rows="10" required></textarea>
+          <textarea name="message" id="" cols="30" rows="10" required ></textarea>
           <button type='submit' className='button_send'>Send</button>
 
 
