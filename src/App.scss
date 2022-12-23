@@ -23,6 +23,7 @@ video {
   height: 100vh;
   object-fit: cover;
   position: absolute;
+  z-index: 1;
 }
 
 :root {
@@ -65,7 +66,7 @@ button {
   padding: 20px 30px;
   background-color: transparent;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   backdrop-filter: blur(20px);
   font-weight: 500;
   box-sizing: border-box;
@@ -102,6 +103,7 @@ button {
   background-position: center;
   background-size: cover;
   position: relative;
+  z-index: 1;
 }
 
 .card_contain_button {
@@ -120,7 +122,6 @@ button {
   padding-top: 12vh;
 }
 
-
 .card_personal {
   background-size: 100% 100%;
   display: grid;
@@ -135,6 +136,7 @@ button {
   box-shadow: 11px 17px 14px 0px rgba(0, 0, 0, 0.75);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 3px solid black;
+  z-index: 1;
 }
 
 .card_image {
@@ -249,6 +251,7 @@ button {
   position: relative;
   background-color: rgb(182, 182, 202);
   border: 3px solid rgb(0, 0, 0);
+  z-index: 1;
 }
 
 
@@ -351,6 +354,7 @@ $display: grid;
   margin: auto auto;
   background-color: rgb(182, 182, 202);
   border: 3px solid black;
+  z-index: 1;
 }
 
 
@@ -458,14 +462,14 @@ $boxShadow: inset 11px 0px 18px -2px rgba(0, 0, 0, 0.64);
 $color: white;
 $ancho: 100%-40%;
 
-@mixin foot($padding: none, $direction: none) {
+@mixin foot($direction: none) {
   display: flex;
   flex-direction: $direction;
   width: $ancho;
   align-items: center;
   justify-content: center;
   margin: auto;
-  padding-top: $padding;
+  z-index: 1;
 }
 
 .card_contactMe {
@@ -473,10 +477,16 @@ $ancho: 100%-40%;
   background: linear-gradient(to top, #181818, rgb(87, 82, 82));
   padding-top: 8vh;
   height: auto;
+  z-index: 2;
 
   form {
-    @include foot(20px, column);
+    @include foot(column);
     margin-bottom: 40px;
+    background-color: rgb(182, 182, 202);
+    border: 3px solid black;
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: -11px 17px 14px 0px rgba(0, 0, 0, 0.75);
+    padding: 5%;
 
     h2 {
       color: white;
@@ -534,6 +544,7 @@ $ancho: 100%-40%;
     align-items: center;
     gap: 5%;
     background-color: rgb(24, 24, 24);
+    z-index: 1;
 
     a {
       text-decoration: none;
@@ -598,6 +609,7 @@ $ancho: 100%-40%;
     height: auto;
     transition: all 500ms ease;
     border-radius: 0px 0px 40px 40px;
+    z-index: 2;
   }
 
   .card_header_inactive {
@@ -608,6 +620,7 @@ $ancho: 100%-40%;
     top: -100%;
     transition: all 2000ms ease;
     border-radius: 0px 0px 40px 40px;
+    z-index: 2;
   }
 
   .card_close {
@@ -630,7 +643,6 @@ $ancho: 100%-40%;
     backdrop-filter: blur(15px);
     display: flex;
     align-items: center;
-    z-index: 1;
     background-color: black;
     transition: all ease 1s;
   }
