@@ -52,7 +52,7 @@ function App() {
 
   AOS.init({
     mirror: false,
-    offset: 100,
+    offset: 50,
     easing: 'ease'
   });
 
@@ -78,6 +78,70 @@ function App() {
 
   return (
     <div className="App" >
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={{
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              repulse: {
+                distance: 150,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "rgb(182, 182, 202)",
+            },
+            links: {
+              color: "rgb(182, 182, 202)",
+              distance: 100,
+              enable: true,
+              opacity: 0.5,
+              width: 1,
+            },
+            collisions: {
+              enable: true,
+            },
+            move: {
+              directions: "none",
+              enable: true,
+              outModes: {
+                default: "bounce",
+              },
+              random: true,
+              speed: 6,
+            },
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 80,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: "triangle",
+            },
+            size: {
+              value: { min: 3, max: 6 },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
       <video src={video} autoPlay muted loop></video>
       <header ref={Header} className={isActive ? 'card_header' : 'card_header_inactive'}>
         <li onClick={handleChange} className='card_close' style={{ color: 'white' }}>
@@ -210,13 +274,13 @@ function App() {
             {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
           </div>
         </div>
-        <div className='text_project' data-aos="zoom-in-up" data-aos-duration="2000" style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
+        <div className='text_project' data-aos="zoom-in-up" data-aos-duration="1000" style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
         </p>
         </div>
       </div>
       <footer className='card_contactMe' id='contactMe'>
-        <form action='https://formsubmit.co/luisjavier_2705@hotmail.com' method='POST' className='card_info'>
-          <h2> Contact Me</h2>
+        <h2  className='card_contact'> Contact Me</h2>
+        <form data-aos="flip-up" data-aos-duration="500" action='https://formsubmit.co/luisjavier_2705@hotmail.com' method='POST' className='card_info'>
           <label htmlFor="">First Name</label>
           <input type="text" name='first_name' required autoComplete='off' />
           <label htmlFor="">Last Name</label>
@@ -236,74 +300,6 @@ function App() {
         </div>
         <blockquote style={{ margin: '0px', textAlign: 'center', color: 'white' }}><AiOutlineCopyright /> Copyright 2022</blockquote>
       </footer>
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        loaded={particlesLoaded}
-        options={{
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: true,
-            },
-            modes: {
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 150,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: "rgb(182, 182, 202)",
-            },
-            links: {
-              color: "rgb(182, 182, 202)",
-              distance: 100,
-              enable: true,
-              opacity: 0.5,
-              width: 1,
-            },
-            collisions: {
-              enable: true,
-            },
-            move: {
-              directions: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: true,
-              speed: 4,
-              straight: true,
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 6 },
-            },
-          },
-          detectRetina: true,
-        }}
-      />
     </div >
   )
 }

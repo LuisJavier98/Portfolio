@@ -136,7 +136,6 @@ button {
   box-shadow: 11px 17px 14px 0px rgba(0, 0, 0, 0.75);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 3px solid black;
-  z-index: 1;
 }
 
 .card_image {
@@ -251,7 +250,6 @@ button {
   position: relative;
   background-color: rgb(182, 182, 202);
   border: 3px solid rgb(0, 0, 0);
-  z-index: 1;
 }
 
 
@@ -354,7 +352,6 @@ $display: grid;
   margin: auto auto;
   background-color: rgb(182, 182, 202);
   border: 3px solid black;
-  z-index: 1;
 }
 
 
@@ -456,11 +453,24 @@ footer {
   height: 120px;
   margin-top: 30px;
   min-height: 100vh;
+
+  h2 {
+    display: flex;
+    align-items: center;
+    color: white;
+    border-bottom: 2px solid white;
+    width: 50%;
+    margin: auto auto;
+    justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
 }
 
 $boxShadow: inset 11px 0px 18px -2px rgba(0, 0, 0, 0.64);
-$color: white;
-$ancho: 100%-40%;
+$color: rgb(4, 4, 4);
+$ancho: 100%-50%;
 
 @mixin foot($direction: none) {
   display: flex;
@@ -469,7 +479,6 @@ $ancho: 100%-40%;
   align-items: center;
   justify-content: center;
   margin: auto;
-  z-index: 1;
 }
 
 .card_contactMe {
@@ -486,7 +495,7 @@ $ancho: 100%-40%;
     border: 3px solid black;
     border-radius: 30px 30px 30px 30px;
     box-shadow: -11px 17px 14px 0px rgba(0, 0, 0, 0.75);
-    padding: 5%;
+    padding: 2%;
 
     h2 {
       color: white;
