@@ -13,6 +13,8 @@ import 'aos/dist/aos.css'
 import Particles from 'react-particles'
 import { loadFull } from 'tsparticles'
 import options from './React-animation/options'
+import { optionEnglish } from './React-animation/options'
+import { optionSpanish } from './React-animation/options'
 
 function App() {
   const [projectNumber, setprojectNumber] = useState(0)
@@ -96,7 +98,7 @@ function App() {
           <IoIosCloseCircleOutline />
         </li>
         <li>
-          <a onClick={handleChange} href="#home">{language ? 'About me' : 'Acerca de mi'}</a>
+          <a onClick={handleChange} href="#home">{language ? 'Home' : 'Principal'}</a>
         </li>
         <li>
           <a onClick={handleChange} href="#aboutMe">{language ? 'About me' : 'Acerca de mi'} </a>
@@ -117,13 +119,7 @@ function App() {
         </div>
         <h1 style={{ color: 'white' }}>Luis Javier</h1>
         <p style={{ color: 'white', textAlign: 'center' }}><Typewriter
-          options={{
-            strings: ['Web developer', 'Forex Trader', 'Industrial Engineer'],
-            autoStart: true,
-            loop: true,
-            delay: 50,
-            pauseFor: 1000
-          }}
+          options={language ? optionEnglish : optionSpanish}
         /> </p>
       </div>
       <div className='card_aboutMe' id='aboutMe' >
