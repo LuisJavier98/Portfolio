@@ -2,6 +2,17 @@ html {
   scroll-behavior: smooth;
 }
 
+.button_language{
+position: fixed;
+bottom: 10px;
+left: 10px;
+z-index: 3;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+
 
 body {
   margin: 0px;
@@ -486,7 +497,6 @@ $ancho: 100%-50%;
   background: linear-gradient(to top, #181818, rgb(87, 82, 82));
   padding-top: 8vh;
   height: auto;
-  z-index: 2;
 
   form {
     @include foot(column);

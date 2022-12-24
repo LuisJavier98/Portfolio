@@ -12,20 +12,24 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import Particles from 'react-particles'
 import { loadFull } from 'tsparticles'
+import options from './React-animation/options'
 
 function App() {
   const [projectNumber, setprojectNumber] = useState(0)
   const [render, setrender] = useState()
   const [isActive, setisActive] = useState(false)
-  const [language, setlanguage] = useState("english")
+  const [language, setlanguage] = useState(true)
   const handleChange = () => setisActive(!isActive)
   const ProjectMove = useRef()
   const SelectCard = useRef()
   const Reference = useRef()
   const Header = useRef()
 
+  const handleLanguage = () => {
+    setlanguage(!language)
+  }
+
   const particlesInit = useCallback(async engine => {
-    console.log(engine);
     await loadFull(engine);
   }, []);
 
@@ -69,7 +73,8 @@ function App() {
     ProjectMove.current.style.transition = 'all 250ms ease'
     Childs = SelectCard.current.childNodes[0]
   }
-    , [render])
+    , [render, isActive, language])
+
 
   const ElementS = (altitude, i) => {
     Childs.childNodes[i].childNodes[1].style.height = `${altitude}%`
@@ -78,69 +83,12 @@ function App() {
 
   return (
     <div className="App" >
+      <button className='button_language' onClick={handleLanguage}>{language ? 'ES' : 'ENG'}</button>
       <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
-        options={{
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: true,
-            },
-            modes: {
-              repulse: {
-                distance: 150,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: "rgb(182, 182, 202)",
-            },
-            links: {
-              color: "rgb(182, 182, 202)",
-              distance: 100,
-              enable: true,
-              opacity: 0.5,
-              width: 1,
-            },
-            collisions: {
-              enable: true,
-            },
-            move: {
-              directions: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: true,
-              speed: 6,
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: "triangle",
-            },
-            size: {
-              value: { min: 3, max: 6 },
-            },
-          },
-          detectRetina: true,
-        }}
+        options={options}
       />
       <video src={video} autoPlay muted loop></video>
       <header ref={Header} className={isActive ? 'card_header' : 'card_header_inactive'}>
@@ -148,19 +96,19 @@ function App() {
           <IoIosCloseCircleOutline />
         </li>
         <li>
-          <a onClick={handleChange} href="#home">Home</a>
+          <a onClick={handleChange} href="#home">{language ? 'About me' : 'Acerca de mi'}</a>
         </li>
         <li>
-          <a onClick={handleChange} href="#aboutMe">About me </a>
+          <a onClick={handleChange} href="#aboutMe">{language ? 'About me' : 'Acerca de mi'} </a>
         </li>
         <li>
-          <a onClick={handleChange} href="#skills">Skills</a>
+          <a onClick={handleChange} href="#skills">{language ? 'Skills' : 'Habilidades'}</a>
         </li>
         <li>
-          <a onClick={handleChange} href="#projects">Projects</a>
+          <a onClick={handleChange} href="#projects">{language ? 'Projects' : 'Proyectos'}</a>
         </li>
         <li>
-          <a onClick={handleChange} href="#contactMe">Contact me</a>
+          <a onClick={handleChange} href="#contactMe">{language ? 'Contact me' : 'Contactame'}</a>
         </li>
       </header>
       <div className='card_home' id='home'>
@@ -176,30 +124,29 @@ function App() {
             delay: 50,
             pauseFor: 1000
           }}
-
         /> </p>
       </div>
       <div className='card_aboutMe' id='aboutMe' >
-        <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>About me</h2>
+        <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>{language ? 'About me' : 'Acerca de mi'}</h2>
         <div data-aos="flip-left" data-aos-duration="2000" data-aos-once="false" data-aos-mirror="true" className='card_personal'>
           <div>
             <img className='card_image' src={image} alt="" />
-            <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>Hi , my name is Luis .I'm a industrial engineer , interested in the finantial markets and development webs , I'm 24 years old , I'm a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.
+            <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>{language ? 'Hi , my name is Luis .Im a industrial engineer , interested in the finantial markets and development webs , Im 24 years old , Im a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.' : 'Hola mi nombre es Luis.Soy Ingeniero Industrial interesado en los mercados financieros y en el desarrollo web , Tengo 24 años , me considero una persona resiliente y diciplinada , siempre enfocado en lograr todas las metas que me proponga'}
             </p>
           </div>
           <div style={{ textAlign: 'center', marginTop: '20px' }} className='card_education' >
-            <p>Education</p>
+            <p>{language ? 'Education' : 'Eduación'}</p>
             <div>
-              <p style={{ color: 'gray' }}>2022-Currently</p>
-              <p>Full-stack Developer student at Academlo</p>
+              <p style={{ color: 'gray' }}>{language ? '2022-Currently' : '2022-Actualidad'}</p>
+              <p>{language ? 'Full-stack Developer student at Academlo' : 'Estudiante de desarrollo Full-stack en Academlo'}</p>
             </div>
             <div>
               <p style={{ color: 'gray' }}>2015-2021</p>
-              <p>Graduated from the Industrial Engineering career at the University of Lima</p>
+              <p>{language ? 'Graduated from the Industrial Engineering career at the University of Lima' : 'Graduado de la carrera de Ingeniería Industrial en la Universidad de Lima'}</p>
             </div>
             <div className='card_buttons_download'>
               <div className='card_box_download'>
-                <button className='button_download'><a style={{ color: 'white', textDecoration: 'none' }} href={CV} download>Download CV</a></button>
+                <button className='button_download'><a style={{ color: 'white', textDecoration: 'none' }} href={CV} download>{language ? 'Download CV' : 'Descargar CV'}</a></button>
                 <button className='button_download_2'><a style={{ color: 'white' }} href={CV} download><BsDownload style={{ transform: 'scale(1.4)' }} /></a></button>
               </div>
             </div>
@@ -211,8 +158,8 @@ function App() {
       <div className='card_skills' id='skills'>
         <div data-aos="zoom-in-up" data-aos-duration="2000"
           className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
-          <h2>Skills</h2> <hr />
-          <p style={{ color: 'white' }}>These are my abilities learned in Academlo in my first period , I took courses in Udemy too , to complement my skills</p>
+          <h2>{language ? 'Skills' : 'Habilidades'}</h2> <hr />
+          <p style={{ color: 'white' }}>{language ? 'These are my abilities learned in Academlo , I took courses in Udemy too , to complement my skills.' : 'Estas son mis habilidades aprendidas en Academlo,así mismo tomé cursos en Udemy para complementarlas. '}</p>
         </div>
         <div className='box_skills' data-aos="fade-up" data-aos-duration="2000">
           <div className='box_skill'  >
@@ -232,38 +179,39 @@ function App() {
                     <div className='card_subida'>
                       <h2 style={{ textAlign: 'center' }} >Pokedex
                       </h2>
-                      <p style={{ color: 'red' }}>Web page focus on searching pokemons by type and name , made with Html , CSS , React and the libraries Redux , Routes and Axios  </p>
+                      <p style={{ color: 'red' }}>{language ? 'Web page focus on searching pokemons by type and name , made with Html , CSS , React and the libraries Redux , Routes and Axios' : 'Pagina enfoacada en la busqueda de pokemones por tipo y nombre , desarrolada con Html,CSS,React y sus librerias Routes , Redux y Axios'}  </p>
                       <div style={{ display: 'flex', gap: '8%' }}>
                         <a href="https://fluffy-tarsier-d169ec.netlify.app/#/pokedex" target={'_blank'}><button>Demo</button></a>
-                        <a href="https://github.com/LuisJavier98/Pokedex" target={'_blank'}> <button>Code</button></a>
+                        <a href="https://github.com/LuisJavier98/Pokedex" target={'_blank'}> <button>{language ? 'Code' : 'Codigo'}</button></a>
                       </div>
                     </div>
                     : indice == 1 ?
                       <div className='card_subida'>
                         <h2 style={{ textAlign: 'center' }} >E-commerce</h2>
-                        {language == 'english' ?
-                          <p style={{ color: 'black' }}>Web focus on searching products and filtering by price and category , made with Html , CSS , React and the libraries Redux , Routes , Hook form and Axios </p> : <p style={{ color: 'black' }}>Web enfocada a la busqueda de productos de una tienda virtual con opcion a filtrarlo por categoria y precio , hecha con Html , CSS , React and the libraries Redux , Routes , Hook form and Axios </p>
-                        }
+                        <p style={{ color: 'black' }}>{language ? 'Web focus on searching products and filtering by price and category , developed with Html , CSS , React and the libraries Redux , Routes , Hook form and Axios' : 'Web enfocada a la busqueda de productos de una tienda virtual con opcion a filtrarlo por categoria y precio , desarrollada con Html , CSS , React and the libraries Redux , Routes , Hook form and Axios'} </p>
+
                         <div style={{ display: 'flex', gap: '8%' }}>
                           <a href="https://jade-caramel-402266.netlify.app" target={'_blank'}><button>Demo</button></a>
-                          <a href="https://github.com/LuisJavier98/Entregable-6" target={'_blank'}><button>Code</button></a>
+                          <a href="https://github.com/LuisJavier98/Entregable-6" target={'_blank'}><button>{language ? 'Code' : 'Codigo'}</button></a>
                         </div>
                       </div>
                       : indice == 2 ?
                         <div className='card_subida'>
                           <h2 style={{ textAlign: 'center', color: 'white' }} >Rick and Morty Api</h2>
-                          <p style={{ color: 'white' }}>App focus on searching Rick and Morty's chapters made with Html,CSS, React and the libraries React Select and Axios  </p>
+                          <p style={{ color: 'white' }}>{language ? 'App focus on searching Rick and Mortys chapters made with Html,CSS, React and the libraries React Select and Axios' : 'Web enfocada en la busqueda de capitulos de la serie Rick and Morty, desarrollada con Html,CSS,React y las librerias React Select y Axios '}  </p>
                           <div style={{ display: 'flex', gap: '8%' }}>
                             <a href="https://harmonious-puffpuff-fe0efd.netlify.app" target={'_blank'}><button>Demo</button></a>
-                            <a href="https://github.com/LuisJavier98/Entregable-3" target={'_blank'}><button>Code</button></a>
+                            <a href="https://github.com/LuisJavier98/Entregable-3" target={'_blank'}><button>{language ? 'Code' : 'Codigo'}</button></a>
                           </div>
                         </div>
                         : <div className='card_subida'>
                           <h2 style={{ textAlign: 'center' }} >Weather Api</h2>
-                          <p style={{ color: 'red' }}></p>
+                          <p style={{ color: 'red' }}>{
+                            language ? 'Web focus on showing the dates about the weather in the countrey where was searching ,it was developed with Html,CSS , React and its library Axios' : 'Web enfocada en mostras los datos acerca del clima en el lugar donde es requerida , fue realizada con Html , CSS ,React y su libreria Axios'
+                          }</p>
                           <div style={{ display: 'flex', gap: '8%' }}>
                             <a href="https://golden-licorice-3c5c45.netlify.app" target={'_blank'}><button>Demo</button></a>
-                            <a href="https://github.com/LuisJavier98/Segundo-entrgable" target={'_blank'}><button>Code</button></a>
+                            <a href="https://github.com/LuisJavier98/Segundo-entrgable" target={'_blank'}><button>{language ? 'Code' : 'Codigo'}</button></a>
                           </div>
                         </div>
                 }
@@ -274,24 +222,24 @@ function App() {
             {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
           </div>
         </div>
-        <div className='text_project' data-aos="zoom-in-up" data-aos-duration="1000" style={{ textAlign: 'center', color: 'white' }}><h2>Projects</h2><hr /> <p style={{ color: 'white' }}>These are 4 of my projects front end developed in Academlo
+        <div className='text_project' data-aos="zoom-in-up" data-aos-duration="1000" style={{ textAlign: 'center', color: 'white' }}><h2>{language ? 'Projects' : 'Proyectos'}</h2><hr /> <p style={{ color: 'white' }}>{language ? 'These are 4 of my projects front end developed in Academlo' : 'Estos son 4 de mis proyectos desarrollados en Academlo'}
         </p>
         </div>
       </div>
       <footer className='card_contactMe' id='contactMe'>
-        <h2  className='card_contact'> Contact Me</h2>
+        <h2 className='card_contact'> {language ? 'Contact Me' : 'Contactame'}</h2>
         <form data-aos="flip-up" data-aos-duration="500" action='https://formsubmit.co/luisjavier_2705@hotmail.com' method='POST' className='card_info'>
-          <label htmlFor="">First Name</label>
+          <label htmlFor="">{language ? 'First Name' : 'Nombres'}</label>
           <input type="text" name='first_name' required autoComplete='off' />
-          <label htmlFor="">Last Name</label>
+          <label htmlFor="">{language ? 'Last Name' : 'Apellidos'}</label>
           <input type="text" name='last_name' required autoComplete='off' />
-          <label htmlFor="">Email</label>
+          <label htmlFor="">{language ? 'Email' : 'Correo Electronico'}</label>
           <input type="email" name='email' required autoComplete='off' />
-          <label htmlFor="number">Phone Number</label>
+          <label htmlFor="number">{language ? 'Phone Number' : 'Celular'}</label>
           <input type="number" name='number' required autoComplete='off' />
-          <label htmlFor="">Message</label>
+          <label htmlFor="">{language ? 'Message' : 'Mensaje'}</label>
           <textarea name="message" id="" cols="30" rows="10" required ></textarea>
-          <button type='submit' className='button_send'>Send</button>
+          <button type='submit' className='button_send'>{language ? 'Send' : 'Enviar'}</button>
         </form>
         <div className='card_icons'>
           <a href="https://www.linkedin.com/in/luis-javier-burga-campos-97bb77186/" target={'_blank'}><AiOutlineLinkedin /></a>
