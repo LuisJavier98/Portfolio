@@ -2,16 +2,24 @@ html {
   scroll-behavior: smooth;
 }
 
-.button_language{
-position: fixed;
-bottom: 10px;
-left: 10px;
-z-index: 3;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-cursor: pointer;
-font-size: 12px;
+@mixin button($bottom, $left) {
+  position: fixed;
+  bottom: $bottom;
+  left: $left;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.button_language {
+  @include button(10px, 10px)
+}
+
+.button_dark {
+  @include button(50px, 10px)
 }
 
 
@@ -91,18 +99,39 @@ button {
   justify-content: flex-end;
 }
 
-.card_header li a,
-.card_header_inactive li a {
-  text-decoration: none;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: .4px;
-  color: white;
-  font-size: 20px;
+.card_header,
+.card_header_inactive {
+  li {
+    .cardLinkDark {
+      text-decoration: none;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: .4px;
+      color: white;
+      font-size: 20px;
+    }
+
+    .cardLinkLight {
+      text-decoration: none;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: .4px;
+      color: black;
+      font-size: 20px;
+    }
+  }
 }
 
-.card_header li a:hover,
-.card_header_inactive li a:hover {
-  text-decoration: line-through solid white
+.card_header,
+.card_header_inactive {
+  li {
+    .cardLinkDark:hover {
+      text-decoration: line-through solid white
+    }
+
+    .cardLinkLight:hover {
+      text-decoration: line-through solid black
+    }
+
+  }
 }
 
 .card_home {

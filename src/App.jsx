@@ -15,12 +15,15 @@ import { loadFull } from 'tsparticles'
 import options from './React-animation/options'
 import { optionEnglish } from './React-animation/options'
 import { optionSpanish } from './React-animation/options'
+import videoLight from './Video/videoLight.mp4'
+
 
 function App() {
   const [projectNumber, setprojectNumber] = useState(0)
   const [render, setrender] = useState()
   const [isActive, setisActive] = useState(false)
   const [language, setlanguage] = useState(true)
+  const [dark, setdark] = useState(true)
   const handleChange = () => setisActive(!isActive)
   const ProjectMove = useRef()
   const SelectCard = useRef()
@@ -29,6 +32,9 @@ function App() {
 
   const handleLanguage = () => {
     setlanguage(!language)
+  }
+  const handleDark = () => {
+    setdark(!dark)
   }
 
   const particlesInit = useCallback(async engine => {
@@ -86,38 +92,44 @@ function App() {
   return (
     <div className="App" >
       <button className='button_language' onClick={handleLanguage}>{language ? 'ES' : 'ENG'}</button>
+      <button className='button_dark' onClick={handleDark}>{dark ? 'light' : 'dark'}</button>
       <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
         options={options}
       />
-      <video src={video} autoPlay muted loop></video>
+      {
+        dark ?
+          <video src={video} autoPlay muted loop></video>
+          :
+          <video src={videoLight} autoPlay muted loop></video>
+      }
       <header ref={Header} className={isActive ? 'card_header' : 'card_header_inactive'}>
         <li onClick={handleChange} className='card_close' style={{ color: 'white' }}>
           <IoIosCloseCircleOutline />
         </li>
         <li>
-          <a onClick={handleChange} href="#home">{language ? 'Home' : 'Principal'}</a>
+          <a className={dark ? 'cardLinkDark' : 'cardLinkLight'} onClick={handleChange} href="#home">{language ? 'Home' : 'Principal'}</a>
         </li>
         <li>
-          <a onClick={handleChange} href="#aboutMe">{language ? 'About me' : 'Acerca de mi'} </a>
+          <a className={dark ? 'cardLinkDark' : 'cardLinkLight'} onClick={handleChange} href="#aboutMe">{language ? 'About me' : 'Acerca de mi'} </a>
         </li>
         <li>
-          <a onClick={handleChange} href="#skills">{language ? 'Skills' : 'Habilidades'}</a>
+          <a className={dark ? 'cardLinkDark' : 'cardLinkLight'} onClick={handleChange} href="#skills">{language ? 'Skills' : 'Habilidades'}</a>
         </li>
         <li>
-          <a onClick={handleChange} href="#projects">{language ? 'Projects' : 'Proyectos'}</a>
+          <a className={dark ? 'cardLinkDark' : 'cardLinkLight'} onClick={handleChange} href="#projects">{language ? 'Projects' : 'Proyectos'}</a>
         </li>
         <li>
-          <a onClick={handleChange} href="#contactMe">{language ? 'Contact me' : 'Contactame'}</a>
+          <a className={dark ? 'cardLinkDark' : 'cardLinkLight'} onClick={handleChange} href="#contactMe">{language ? 'Contact me' : 'Contactame'}</a>
         </li>
       </header>
       <div className='card_home' id='home'>
         <div ref={Reference} className='card_contain_button'>
           <button onClick={handleChange}><AiOutlineMenu /></button>
         </div>
-        <h1 style={{ color: 'white' }}>Luis Javier</h1>
+        <h1 style={{ color: dark ? 'white' : 'black' }}>Luis Javier</h1>
         <p style={{ color: 'white', textAlign: 'center' }}><Typewriter
           options={language ? optionEnglish : optionSpanish}
         /> </p>
