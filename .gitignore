@@ -11,12 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-CV
-Video
-React-animation
-Store
-*.scss
-Images
+
 
 # Editor directories and files
 .vscode/*
