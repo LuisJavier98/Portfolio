@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 const Footer = ({ language }) => {
   const dark = useSelector(state => state.changeColor)
+  
   return (
     <footer style={{ background: dark ? ' linear-gradient(to top, #181818, rgb(87, 82, 82))' : 'linear-gradient(to top, rgba(219, 228, 237, 255), rgb(87, 82, 82))' }} className='card_contactMe' id='contactMe'>
       <h2 className='card_contact'> {language ? 'Contact Me' : 'Contactame'}</h2>
