@@ -64,7 +64,7 @@ export const optionEnglish = {
     autoStart: true,
     loop: true,
     delay: 50,
-    pauseFor: 1000
+    pauseFor: 1000,
 }
 export const optionSpanish={
     strings: ['Desarrollador Web', 'Forex Trader', 'Ingeniero Industrial'],
