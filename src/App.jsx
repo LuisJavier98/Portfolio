@@ -14,6 +14,7 @@ import MyProject from './Project-Components/MyProject'
 import Header from './Project-Components/Header'
 import Footer from './Project-Components/Footer';
 import { BsMoon, BsSun } from 'react-icons/bs'
+import { AiOutlineSetting, AiOutlineClose } from 'react-icons/ai'
 
 
 
@@ -31,13 +32,16 @@ function App() {
   const [dark, setdark] = useState(true)
   const [isActive, setisActive] = useState(false)
   const [language, setlanguage] = useState(true)
+  const [deploy, setdeploy] = useState(false)
   const ProjectMove = useRef()
   let height = window.innerHeight
   const headers = useRef()
   const Reference = useRef()
 
 
-
+  const handleDeploy = () => {
+    setdeploy(!deploy)
+  }
   const handleDark = () => {
     setdark(!dark)
   }
@@ -59,9 +63,9 @@ function App() {
     }
     else {
       if (scrollY > (height - 10)) {
-        headers.current.style.backgroundColor = 'rgb(87, 82, 82)'
+        headers.current.style.backgroundColor = 'rgba(219, 228, 237, 255)'
         headers.current.style.backdropFilter = 'blur(0px)'
-        Reference.current.style.backgroundColor = 'rgb(87, 82, 82)'
+        Reference.current.style.backgroundColor = 'rgba(219, 228, 237, 255)'
         Reference.current.style.backdropFilter = 'blur(0px)'
       }
       else {
@@ -73,6 +77,10 @@ function App() {
 
     }
   }
+
+  const buttonDark = document.getElementsByClassName('button_dark')
+  const buttonLanguage = document.getElementsByClassName('button_language')
+  const buttonWhatsapp = document.getElementsByClassName('button_whatsapp')
 
   const handleChange = () => {
     setisActive(!isActive)
@@ -103,8 +111,24 @@ function App() {
     ProjectMove.current.style.transform = `translateX(${-25 * projectNumber}%)`
     ProjectMove.current.style.transition = 'all 250ms ease'
     Childs = SelectCard.current.childNodes[0]
+    if (deploy) {
+      buttonDark[0].style.transform = 'translateX(50px)'
+      buttonDark[0].style.transition = 'all 250ms ease'
+      buttonLanguage[0].style.transition = 'all 250ms ease'
+      buttonLanguage[0].style.transform = 'translate(50px, -50px)'
+      buttonWhatsapp[0].style.transform = 'translateY(-50px)'
+      buttonWhatsapp[0].style.transition = 'all 250ms ease'
+    }
+    else {
+      buttonDark[0].style.transform = 'translateX(0px)'
+      buttonDark[0].style.transition = 'all 250ms ease'
+      buttonLanguage[0].style.transform = 'translateX(0px)'
+      buttonLanguage[0].style.transition = 'all 250ms ease'
+      buttonWhatsapp[0].style.transform = 'translateY(0px)'
+      buttonWhatsapp[0].style.transition = 'all 250ms ease'
+    }
   }
-    , [render, isActive, language, dark])
+    , [render, isActive, language, dark, deploy])
 
   const ElementS = (altitude, i) => {
     Childs.childNodes[i].childNodes[1].style.height = `${altitude}%`
@@ -117,11 +141,16 @@ function App() {
     <div className="App" >
       <button style={{ backgroundImage: language ? 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png) ' : "url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/640px-Flag_of_the_United_Kingdom.svg.png)" }} className='button_language' onClick={handleLanguage}></button>
       <button style={{ backgroundColor: dark ? 'rgb(221, 215, 215)' : 'rgb(62, 59, 59)', color: dark ? 'black' : 'white' }} className='button_dark' onClick={handleDark}>{dark ? <BsSun /> : <BsMoon />}</button>
+      <a href="https://api.whatsapp.com/send?phone=51957580294&text=Hola, Nececito mas informacion!" target='_blank'>
+        <button className='button_whatsapp' style={{ backgroundImage: 'url(https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360)' }} >
+        </button>
+      </a>
+      <button className='button_config' onClick={handleDeploy} style={{translate:'all 500ms ease'}}> {deploy ? <AiOutlineClose /> : <AiOutlineSetting />}</button>
       {
         dark ?
-          <video src={video} autoPlay muted loop></video>
+          <video style={{ transition: 'all 250ms ease' }} src={video} autoPlay muted loop></video>
           :
-          <video src={videoLight} autoPlay muted loop></video>
+          <video style={{ transition: 'all 250ms ease' }} src={videoLight} autoPlay muted loop></video>
       }
       <Header
         language={language}

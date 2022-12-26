@@ -9,7 +9,7 @@ const AboutMe = ({ language,dark }) => {
 
   return (
     <div className={dark?'card_aboutMe':'card_aboutMeLight'} id='aboutMe' >
-      <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>{language ? 'About me' : 'Acerca de mi'}</h2>
+      <h2 style={{ color:dark? 'white':'black', textAlign: 'center', margin: '0' }}>{language ? 'About me' : 'Acerca de mi'}</h2>
       <div data-aos="flip-left" className='card_personal'>
         <div>
           <img className='card_image' src={image} alt="" />

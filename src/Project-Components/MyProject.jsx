@@ -61,7 +61,7 @@ const MyProject = ({ language, ProjectMove, ProjectNext, SelectCard, projectNumb
           {Projects.map((project, indice) => <button className={indice == projectNumber ? "buttonProjectActive" : "buttonProjectInactive"} onClick={ProjectNext} id={indice}></button>)}
         </div>
       </div>
-      <div className='text_project' data-aos="zoom-in-up" style={{ textAlign: 'center', color: 'white' }}><h2>{language ? 'Projects' : 'Proyectos'}</h2><hr /> <p style={{ color: 'white' }}>{language ? 'These are 4 of my projects front end developed in Academlo' : 'Estos son 4 de mis proyectos desarrollados en Academlo'}
+      <div className='text_project' data-aos="zoom-in-up" style={{ textAlign: 'center', color:dark? 'white':'black' }}><h2>{language ? 'Projects' : 'Proyectos'}</h2><hr /> <p style={{ color:dark? 'white':'black' }}>{language ? 'These are 4 of my projects front end developed in Academlo' : 'Estos son 4 de mis proyectos desarrollados en Academlo'}
       </p>
       </div>
     </div>

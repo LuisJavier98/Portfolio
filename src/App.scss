@@ -19,14 +19,23 @@ html {
   font-weight: 800;
 }
 
+
 .button_language {
   @include button(10px, 10px)
 }
 
 .button_dark {
-  @include button(55px, 10px)
+  @include button(10px, 10px)
 }
 
+.button_whatsapp {
+  @include button(10px, 10px)
+}
+
+.button_config {
+  @include button(10px, 10px);
+  z-index: 5
+}
 
 body {
   margin: 0px;
