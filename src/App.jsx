@@ -15,7 +15,7 @@ import Header from './Project-Components/Header'
 import Footer from './Project-Components/Footer';
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { AiOutlineSetting, AiOutlineClose } from 'react-icons/ai'
-
+console.log(window)
 
 
 function App() {
@@ -141,11 +141,11 @@ function App() {
     <div className="App" >
       <button style={{ backgroundImage: language ? 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png) ' : "url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/640px-Flag_of_the_United_Kingdom.svg.png)" }} className='button_language' onClick={handleLanguage}></button>
       <button style={{ backgroundColor: dark ? 'rgb(221, 215, 215)' : 'rgb(62, 59, 59)', color: dark ? 'black' : 'white' }} className='button_dark' onClick={handleDark}>{dark ? <BsSun /> : <BsMoon />}</button>
-      <a href="https://api.whatsapp.com/send?phone=51957580294&text=Hola, Nececito mas informacion!" target='_blank'>
+      <a href="https://api.whatsapp.com/send?phone=51957580094&text=Hola, Nececito mas informacion!" target='_blank'>
         <button className='button_whatsapp' style={{ backgroundImage: 'url(https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360)' }} >
         </button>
       </a>
-      <button className='button_config' onClick={handleDeploy} style={{translate:'all 500ms ease'}}> {deploy ? <AiOutlineClose /> : <AiOutlineSetting />}</button>
+      <button className='button_config' onClick={handleDeploy} style={{ translate: 'all 500ms ease', backgroundColor: dark ? '#181818' : 'rgba(219, 228, 237, 255)', color: dark ? 'white' : 'black' }}> {deploy ? <AiOutlineClose /> : <AiOutlineSetting />}</button>
       {
         dark ?
           <video style={{ transition: 'all 250ms ease' }} src={video} autoPlay muted loop></video>

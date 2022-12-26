@@ -34,7 +34,7 @@ html {
 
 .button_config {
   @include button(10px, 10px);
-  z-index: 5
+  z-index: 5;
 }
 
 body {

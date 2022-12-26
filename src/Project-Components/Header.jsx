@@ -7,8 +7,8 @@ const Header = ({ language, isActive, handleChange, headers, dark }) => {
 
 
   return (
-    <header ref={headers} className={isActive ? 'card_header' : 'card_header_inactive'} style={{backgroundColor:dark?'#181818 ':'rgba(219, 228, 237, 255)'}}>
-      <li onClick={handleChange} className='card_close' style={{ color: 'white', transition: 'all 500ms ease' }}>
+    <header ref={headers} className={isActive ? 'card_header' : 'card_header_inactive'} style={{ backgroundColor: dark ? '#181818 ' : 'rgba(219, 228, 237, 255)' }}>
+      <li onClick={handleChange} className='card_close' style={{ color: dark ? 'white' : "black", transition: 'all 500ms ease' }}>
         <IoIosCloseCircleOutline />
       </li>
       <li>
