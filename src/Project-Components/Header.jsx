@@ -1,10 +1,10 @@
 import React from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
-import {useSelector } from 'react-redux'
 
 
-const Header = ({ language, isActive, handleChange, headers }) => {
-  const dark = useSelector(state => state.changeColor)
+
+const Header = ({ language, isActive, handleChange, headers,dark }) => {
+  
 
   return (
     <header ref={headers} className={isActive ? 'card_header' : 'card_header_inactive'}>

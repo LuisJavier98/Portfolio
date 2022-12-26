@@ -1,10 +1,10 @@
 import React from 'react'
 import { BsGithub, BsInstagram } from 'react-icons/bs'
 import { AiOutlineLinkedin, AiOutlineCopyright } from 'react-icons/ai'
-import { useSelector } from 'react-redux'
 
-const Footer = ({ language }) => {
-  const dark = useSelector(state => state.changeColor)
+
+const Footer = ({ language ,dark}) => {
+ 
   
   return (
     <footer style={{ background: dark ? ' linear-gradient(to top, #181818, rgb(87, 82, 82))' : 'linear-gradient(to top, rgba(219, 228, 237, 255), rgb(87, 82, 82))' }} className='card_contactMe' id='contactMe'>

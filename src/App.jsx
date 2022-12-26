@@ -13,8 +13,6 @@ import Home from './Project-Components/Home'
 import MyProject from './Project-Components/MyProject'
 import Header from './Project-Components/Header'
 import Footer from './Project-Components/Footer';
-import { useDispatch, useSelector } from 'react-redux';
-import { Change } from './Store/Slices/Boolean.slice.js'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
 
@@ -30,17 +28,18 @@ function App() {
 
   const [projectNumber, setprojectNumber] = useState(0)
   const [render, setrender] = useState()
+  const [dark, setdark] = useState(true)
   const [isActive, setisActive] = useState(false)
   const [language, setlanguage] = useState(true)
   const ProjectMove = useRef()
   let height = window.innerHeight
   const headers = useRef()
   const Reference = useRef()
-  const dispatch = useDispatch()
-  const dark = useSelector(state => state.changeColor)
+
+
 
   const handleDark = () => {
-    dispatch(Change())
+    setdark(!dark)
   }
 
   window.onscroll = function () {
@@ -129,6 +128,7 @@ function App() {
         isActive={isActive}
         handleChange={handleChange}
         headers={headers}
+        dark={dark}
       />
 
       <Home
@@ -136,13 +136,16 @@ function App() {
         handleChange={handleChange}
         height={height}
         Reference={Reference}
+        dark={dark}
       />
 
       <AboutMe
-        language={language} />
+        language={language}
+        dark={dark} />
 
       <Skills
-        language={language} />
+        language={language}
+        dark={dark} />
 
       <MyProject
         language={language}
@@ -151,9 +154,11 @@ function App() {
         SelectCard={SelectCard}
         projectNumber={projectNumber}
         ElementS={ElementS}
+        dark={dark}
       />
       <Footer
         language={language}
+        dark={dark}
       />
 
 

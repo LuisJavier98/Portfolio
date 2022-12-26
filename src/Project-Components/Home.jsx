@@ -3,10 +3,10 @@ import { optionEnglish } from '../React-animation/options'
 import { optionSpanish } from '../React-animation/options'
 import { AiOutlineMenu } from 'react-icons/ai'
 import Typewriter from 'typewriter-effect'
-import { useSelector } from 'react-redux'
 
-const Home = ({ language, handleChange, Reference }) => {
-  const dark = useSelector(state => state.changeColor)
+
+const Home = ({ language, handleChange, Reference,dark }) => {
+  
 
   return (
     <div className='card_home' id='home'>

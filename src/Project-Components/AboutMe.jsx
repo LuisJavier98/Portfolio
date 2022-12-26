@@ -2,11 +2,11 @@ import React from 'react'
 import CV from '../CV/CV_Luis_Burga.pdf'
 import { BsDownload } from 'react-icons/bs'
 import image from '../Images/Foto.png'
-import {useSelector } from 'react-redux'
 
 
-const AboutMe = ({ language }) => {
-  const dark = useSelector(state => state.changeColor)
+
+const AboutMe = ({ language,dark }) => {
+
   return (
     <div className={dark?'card_aboutMe':'card_aboutMeLight'} id='aboutMe' >
       <h2 style={{ color: 'white', textAlign: 'center', margin: '0' }}>{language ? 'About me' : 'Acerca de mi'}</h2>

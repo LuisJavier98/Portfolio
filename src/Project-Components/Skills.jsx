@@ -1,11 +1,11 @@
 import React from 'react'
 import { skills } from '../Projects'
-import {useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-const Skills = ({ language }) => {
-  const dark = useSelector(state => state.changeColor)
+const Skills = ({ language, dark }) => {
+
   return (
-    <div className={dark?'card_skills':'card_skillsLight'} id='skills'>
+    <div className={dark ? 'card_skills' : 'card_skillsLight'} id='skills'>
       <div data-aos="zoom-in-up"
         className='text_skills' style={{ color: 'white', textAlign: 'center' }}>
         <h2>{language ? 'Skills' : 'Habilidades'}</h2> <hr />

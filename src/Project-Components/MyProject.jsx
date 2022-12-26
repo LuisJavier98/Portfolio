@@ -1,10 +1,9 @@
 import React from 'react'
 import Projects from '../Projects.js'
-import {useSelector } from 'react-redux'
 
-const MyProject = ({ language, ProjectMove, ProjectNext, SelectCard, projectNumber, ElementS }) => {
 
-  const dark = useSelector(state => state.changeColor)
+const MyProject = ({ language, ProjectMove, ProjectNext, SelectCard, projectNumber, ElementS ,dark}) => {
+
   
   return (
     <div className={dark?'card_projects':'card_projectsLight'} id='projects'>
