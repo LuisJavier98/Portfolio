@@ -14,7 +14,7 @@ import MyProject from './Project-Components/MyProject'
 import Header from './Project-Components/Header'
 import Footer from './Project-Components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import { Change } from './Store/Slices/Boolean.slice'
+import { Change } from './Store/Slices/Boolean.slice.js'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
 
@@ -42,8 +42,6 @@ function App() {
   const handleDark = () => {
     dispatch(Change())
   }
-
-  console.log(dark)
 
   window.onscroll = function () {
     if (dark) {
