@@ -45,7 +45,7 @@ const MyProject = ({ language, ProjectMove, ProjectNext, SelectCard, projectNumb
                       </div>
                       : <div className='card_subida'>
                         <h2 style={{ textAlign: 'center' }} >Weather Api</h2>
-                        <p style={{ color: 'red' }}>{
+                        <p style={{ color: 'white' }}>{
                           language ? 'Web focus on showing the dates about the weather in the countrey where was searching ,it was developed with Html,CSS , React and its library Axios' : 'Web enfocada en mostras los datos acerca del clima en el lugar donde es requerida , fue realizada con Html , CSS ,React y su libreria Axios'
                         }</p>
                         <div style={{ display: 'flex', gap: '8%' }}>

@@ -282,7 +282,7 @@ button {
 
 @mixin Skills($first, $second) {
   height: 90vh;
-  padding-top: 10vh;
+  padding-top: 8vh;
   background: linear-gradient(to top, $first , $second);
   display: grid;
   grid-template-columns: var(--grid);
@@ -357,7 +357,9 @@ $translate: 250px;
   --translate: #{$translate};
   --grid: repeat(2, 1fr);
   --gridProject: repeat(2, 1fr);
-  --boxSkillsHeigth: 60%
+  --boxSkillsHeigth: 60%;
+  --boxProjectsHeigth: 50%;
+  --boxContactMeWidth: 60%;
 }
 
 .box_skill figure {
@@ -386,7 +388,8 @@ $display: grid;
 
 @for $var from 0 to $MaxNumber {
   .box_skill figure:nth-child(#{$var + 1}) {
-    transform: rotateY(#{$var*$deg}deg)translateZ(var(--translate))
+    transform: rotateY(#{$var*$deg}deg)translateZ(var(--translate));
+    filter: drop-shadow(8px 8px 5px black);
   }
 }
 
@@ -424,7 +427,7 @@ $display: grid;
   flex-direction: column;
   justify-content: center;
   transition: all 1s ease;
-  height: var(--boxSkillsHeigth);
+  height: var(--boxProjectsHeigth);
   margin: auto auto;
   background-color: rgb(182, 182, 202);
   border: 3px solid black;
@@ -546,12 +549,11 @@ footer {
 
 $boxShadow: inset 11px 0px 18px -2px rgba(0, 0, 0, 0.64);
 $color: rgb(4, 4, 4);
-$ancho: 100%-50%;
 
 @mixin foot($direction: none) {
   display: flex;
   flex-direction: $direction;
-  width: $ancho;
+  width: var(--boxContactMeWidth);
   align-items: center;
   justify-content: center;
   margin: auto;
@@ -682,7 +684,9 @@ $ancho: 100%-50%;
     --figureWidth: calc(#{$figureWidth} * 0.8);
     --translate: calc(#{$translate} * 0.6);
     --gridProject: repeat(1, 1fr);
+    --boxProjectsHeigth: 70%;
     --boxSkillsHeigth: 100%;
+    --boxContactMeWidth: 70%;
     --p: 18px
   }
 
