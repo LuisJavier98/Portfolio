@@ -3,7 +3,6 @@ import video from '../src/Video/Smoke.mp4'
 import { useRef, useState, useEffect, useCallback } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
-import Particles from 'react-particles'
 import { loadFull } from 'tsparticles'
 import options from './React-animation/options'
 import videoLight from './Video/videoLight.mp4'
