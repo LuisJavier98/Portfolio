@@ -686,7 +686,23 @@ $color: rgb(4, 4, 4);
       }
 
     button:hover::before {
-      animation: back 500ms linear 1 alternate forwards;
+      animation: back $time linear 1 alternate forwards;
+    }
+
+    button:hover::after {
+      animation: box $time linear 1 alternate forwards;
+      animation-delay: $time;
+    }
+
+    @keyframes box {
+      from {
+        box-shadow: 7px 13px 26px 3px rgba(0, 0, 0, 0.74);
+      }
+
+      to {
+        box-shadow: none
+      }
+
     }
 
 
