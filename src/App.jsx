@@ -14,6 +14,8 @@ import Header from './Project-Components/Header'
 import Footer from './Project-Components/Footer';
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { AiOutlineSetting, AiOutlineClose } from 'react-icons/ai'
+import { flags } from './Projects';
+
 console.log(window)
 
 
@@ -134,10 +136,9 @@ function App() {
 
   }
 
-
   return (
     <div className="App" >
-      <button className='button_language' onClick={handleLanguage}></button>
+      <button style={{ backgroundImage: language ? `url(${flags[0]})` : `url(${flags[1]})`}} className='button_language' onClick={handleLanguage}></button>
       <button style={{ backgroundColor: dark ? 'rgb(221, 215, 215)' : 'rgb(62, 59, 59)', color: dark ? 'black' : 'white' }} className='button_dark' onClick={handleDark}>{dark ? <BsSun /> : <BsMoon />}</button>
       <a href="https://api.whatsapp.com/send?phone=51957580094&text=Hola, Nececito mas informacion!" target='_blank'>
         <button className='button_whatsapp' style={{ backgroundImage: 'url(https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360)' }} >
