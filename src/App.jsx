@@ -137,7 +137,7 @@ function App() {
 
   return (
     <div className="App" >
-      <button style={{ backgroundImage: language ? 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png) ' : "url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/640px-Flag_of_the_United_Kingdom.svg.png)" }} className='button_language' onClick={handleLanguage}></button>
+      <button className='button_language' onClick={handleLanguage}></button>
       <button style={{ backgroundColor: dark ? 'rgb(221, 215, 215)' : 'rgb(62, 59, 59)', color: dark ? 'black' : 'white' }} className='button_dark' onClick={handleDark}>{dark ? <BsSun /> : <BsMoon />}</button>
       <a href="https://api.whatsapp.com/send?phone=51957580094&text=Hola, Nececito mas informacion!" target='_blank'>
         <button className='button_whatsapp' style={{ backgroundImage: 'url(https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360)' }} >
