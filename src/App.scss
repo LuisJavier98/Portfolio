@@ -649,8 +649,42 @@ $color: rgb(4, 4, 4);
       z-index: -1;
     }
 
+    $time: 150ms;
+
+    button::after {
+      content: '';
+      width: $width;
+      height: $heigth;
+      box-sizing: border-box;
+      position: absolute;
+      top: calc(($heigth - 100%)* (-1/2));
+      left: calc(($width - 100%)* (-1/2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      z-index: -1;
+      box-shadow: 7px 13px 26px 3px rgba(0, 0, 0, 0.74);
+    }
+
     button:hover::before {
-      animation: back 500ms linear 1 alternate forwards;
+      animation: back $time linear 1 alternate forwards;
+    }
+
+    button:hover::after {
+      animation: box $time linear 1 alternate forwards;
+      animation-delay: $time;
+    }
+
+    @keyframes box {
+      from {
+        box-shadow: 7px 13px 26px 3px rgba(0, 0, 0, 0.74);
+      }
+
+      to {
+        box-shadow: none
+      }
+
     }
 
 
