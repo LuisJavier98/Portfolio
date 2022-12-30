@@ -20,7 +20,7 @@ const Footer = ({ language, dark }) => {
         <input type="number" name='number' required autoComplete='off' />
         <label htmlFor="">{language ? 'Message' : 'Mensaje'}</label>
         <textarea name="message" id="" cols="30" rows="10" required ></textarea>
-        <button type='submit' className='button_send'>{language ? 'Send' : 'Enviar'}</button>
+        <button  type='submit' className='button_send'>{language ? 'Send' : 'Enviar'}</button>
       </form>
       <div style={{ backgroundColor: dark ? '' : 'rgb(87, 82, 82)' }} className='card_icons'>
         <a href="https://www.linkedin.com/in/luis-javier-burga-campos-97bb77186/" target={'_blank'}><AiOutlineLinkedin /></a>

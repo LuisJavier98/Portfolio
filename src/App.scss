@@ -621,10 +621,49 @@ $color: rgb(4, 4, 4);
       height: 40px;
       border-radius: 10px;
       cursor: pointer;
+      position: relative;
+      border: none;
+      box-sizing: border-box;
+
     }
 
-    button:hover {
-      background-color: #605c5c;
+    $width: 104%;
+    $heigth: 110%;
+
+    @mixin backGround($deg) {
+      background-image: conic-gradient(#2a2929 $deg, transparent 0deg);
+    }
+
+    button::before {
+      content: '';
+      width: $width;
+      height: $heigth;
+      box-sizing: border-box;
+      position: absolute;
+      top: calc(($heigth - 100%)* (-1/2));
+      left: calc(($width - 100%)* (-1/2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      z-index: -1;
+    }
+
+    button:hover::before {
+      animation: back 500ms linear 1 alternate forwards;
+    }
+
+
+    @keyframes back {
+      @for $i from 0% to 99% {
+        #{$i} {
+          @include backGround($i)
+        }
+      }
+
+      100% {
+        @include backGround(100%);
+      }
     }
   }
 
