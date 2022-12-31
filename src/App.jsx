@@ -135,9 +135,6 @@ function App() {
     Childs.childNodes[i].childNodes[1].style.height = `${altitude}%`
 
   }
-  useEffect(() => {
-    
-  }, [third])
   
 
   return (
