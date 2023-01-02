@@ -118,8 +118,7 @@ function App() {
       buttonLanguage[0].style.transition = 'all 250ms ease'
       buttonLanguage[0].style.transform = 'translate(50px, -50px)'
       buttonWhatsapp[0].style.transform = 'translateY(-50px)'
-      buttonWhatsapp[0].style.transition = 'all 250ms ease'
-      
+      buttonWhatsapp[0].style.transition = 'all 250ms ease'    
     }
     else {
       buttonDark[0].style.transform = 'translateX(0px)'
