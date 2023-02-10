@@ -2,40 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
-@mixin button($bottom, $left) {
-  position: fixed;
-  bottom: $bottom;
-  left: $left;
-  z-index: 3;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 15px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: 1px solid black;
-  font-weight: 800;
+button {
+  width: 30%;
+  display: block;
+
 }
 
-
-.button_language {
-  @include button(10px, 10px)
-}
-
-.button_dark {
-  @include button(10px, 10px)
-}
-
-.button_whatsapp {
-  @include button(10px, 10px)
-}
-
-.button_config {
-  @include button(10px, 10px);
-  z-index: 5;
-}
 
 body {
   margin: 0px;
@@ -81,11 +53,6 @@ h2 {
   margin: 0;
 }
 
-button {
-  width: 30%;
-  display: block;
-  margin: auto;
-}
 
 .card_header,
 .card_header_inactive {
@@ -93,21 +60,43 @@ button {
   align-items: center;
   justify-content: center;
   list-style: none;
-  gap: 3%;
+  gap: 2%;
   height: 8vh;
   position: fixed;
   right: 0px;
-  padding: 20px 30px;
-  background-color: transparent;
   width: 100%;
   z-index: 3;
-  backdrop-filter: blur(20px);
   font-weight: 500;
   box-sizing: border-box;
   transition: all ease 1s;
   opacity: 0.95;
 }
 
+.buttons {
+  position: fixed;
+  top: 5px;
+  left: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.button_language {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.button_dark {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
 
 .card_close {
   display: none;
@@ -175,7 +164,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 12vh;
+  padding-top: 8vh;
 }
 
 .card_aboutMe {
@@ -375,7 +364,6 @@ $display: grid;
 @for $var from 0 to $MaxNumber {
   .box_skill figure:nth-child(#{$var + 1}) {
     transform: rotateY(#{$var*$deg}deg)translateZ(var(--translate));
-    filter: drop-shadow(8px 8px 5px black);
   }
 }
 
