@@ -10,7 +10,7 @@ const Home = ({ language, handleChange, Reference, dark }) => {
 
   return (
     <div className='card_home' id='home'>
-      <div ref={Reference} className='card_contain_button'>
+      <div ref={Reference} style={{ backgroundColor: dark ? 'rgb(0,0,0,0.9)' : 'rgba(219, 228, 237,0.9)', borderTop: '1px solid white' }} className='card_contain_button'>
         <button style={{ color: dark ? 'white' : "black" }} onClick={handleChange}><AiOutlineMenu /></button>
       </div>
       <h1 style={{ color: dark ? 'white' : 'black', transition: 'all 500ms ease' }}>Luis Javier</h1>

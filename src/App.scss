@@ -53,6 +53,59 @@ h2 {
   margin: 0;
 }
 
+:root {
+  --color-button: #e9f0f0;
+  --color-black: #000;
+}
+
+.switch-button {
+  display: flex;
+  gap: 5px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-button .switch-button__checkbox {
+  display: none;
+}
+
+.switch-button .switch-button__label {
+  width: 2rem;
+  height: 1rem;
+  border-radius: 3rem;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  background-image: url(./Images/england.jpg);
+}
+
+.switch-button .switch-button__label:before {
+  background-color: var(--color-button);
+  opacity: 0.8;
+  backdrop-filter: blur(5px);
+  transition: .2s;
+  display: block;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  content: '';
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+
+.switch-button .switch-button__checkbox:checked+.switch-button__label {
+  background-image: url(./Images/spain.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.switch-button .switch-button__checkbox:checked+.switch-button__label:before {
+  transform: translateX(1rem);
+}
+
 
 .card_header,
 .card_header_inactive {
@@ -74,10 +127,12 @@ h2 {
 
 .buttons {
   position: fixed;
-  top: 5px;
+  top: 2.5vh;
   left: 10px;
   display: flex;
   gap: 5px;
+  color: white;
+
 }
 
 .button_language {
@@ -184,13 +239,19 @@ h2 {
   margin: 10px auto;
   border-radius: 30px;
   background-color: rgb(182, 182, 202);
-  width: 90%;
-  height: 70%;
+  width: 80%;
+  height: 65%;
   box-sizing: border-box;
   padding: 5%;
-  box-shadow: 11px 17px 14px 0px rgba(0, 0, 0, 0.75);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 3px solid black;
+  cursor: crosshair;
+  transition: all 1000ms;
+}
+
+.card_personal:hover {
+  transition: all 1000ms;
+  box-shadow: 0px 0px 14px 0px rgba(246, 242, 242, 0.75);
 }
 
 .card_image {
@@ -400,6 +461,7 @@ $display: grid;
   transition: all 1s ease;
   height: var(--boxProjectsHeigth);
   margin: auto auto;
+
 }
 
 
@@ -424,7 +486,13 @@ $display: grid;
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  transition: all 500ms;
+}
 
+.project img:hover {
+  transform: scale(1.3);
+  transition: all 500ms;
 }
 
 .card_contain_buttonProject {
@@ -432,7 +500,6 @@ $display: grid;
   justify-content: center;
   align-items: center;
   margin-top: 5%;
-  ;
 }
 
 .card_subida {
@@ -442,6 +509,7 @@ $display: grid;
   bottom: 0px;
   z-index: 1;
   background-color: rgb(50, 47, 47, 0.8);
+  backdrop-filter: blur(2px);
   transition: all 1s ease;
   display: flex;
   justify-content: center;
@@ -602,77 +670,6 @@ $color: rgb(4, 4, 4);
 
     }
 
-    $width: 104%;
-    $heigth: 110%;
-
-    @mixin backGround($deg) {
-      background-image: conic-gradient(#2a2929 $deg, transparent 0deg);
-    }
-
-    button::before {
-      content: '';
-      width: $width;
-      height: $heigth;
-      box-sizing: border-box;
-      position: absolute;
-      top: calc(($heigth - 100%)* (-1/2));
-      left: calc(($width - 100%)* (-1/2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      z-index: -1;
-    }
-
-    $time: 150ms;
-
-    button::after {
-      content: '';
-      width: $width;
-      height: $heigth;
-      box-sizing: border-box;
-      position: absolute;
-      top: calc(($heigth - 100%)* (-1/2));
-      left: calc(($width - 100%)* (-1/2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      z-index: -1;
-      box-shadow: 7px 13px 26px 3px rgba(0, 0, 0, 0.74);
-    }
-
-    button:hover::before {
-      animation: back $time linear 1 alternate forwards;
-    }
-
-    button:hover::after {
-      animation: box $time linear 1 alternate forwards;
-      animation-delay: $time;
-    }
-
-    @keyframes box {
-      from {
-        box-shadow: 7px 13px 26px 3px rgba(0, 0, 0, 0.74);
-      }
-
-      to {
-        box-shadow: none
-      }
-
-    }
-
-    @keyframes back {
-      @for $i from 0% to 99% {
-        #{$i} {
-          @include backGround($i)
-        }
-      }
-
-      100% {
-        @include backGround(100%);
-      }
-    }
   }
 
   .card_icons {
@@ -737,7 +734,7 @@ $color: rgb(4, 4, 4);
     --p: 18px
   }
 
-  .text_project {
+  card .text_project {
     order: -1;
   }
 
@@ -745,15 +742,32 @@ $color: rgb(4, 4, 4);
     display: flex;
     padding: 30px 0px;
     flex-direction: column;
-    top: 0%;
-    height: auto;
-    transition: all 500ms ease;
+    height: 180px;
+    overflow: hidden;
+    position: fixed;
+    transition: all 500ms;
     border-radius: 0px 0px 40px 40px;
-    z-index: 2;
+    top: 7.3vh;
+    box-sizing: border-box;
   }
 
   .card_projects {
     grid-template-rows: 0.5fr 3fr;
+  }
+
+  .card_contain_projects {
+    grid-row: 2/3;
+    height: 80%;
+  }
+
+  .card_contain_buttonProject {
+    flex: 1;
+    margin: 0;
+  }
+
+  .card_contain {
+    flex: 5;
+
   }
 
   .card_skills {
@@ -762,13 +776,15 @@ $color: rgb(4, 4, 4);
 
   .card_header_inactive {
     display: flex;
-    padding: 30px 0px;
+    padding: 0px 0px;
     flex-direction: column;
-    position: absolute;
-    top: -100%;
-    transition: all 2000ms ease;
+    position: fixed;
+    height: 0px;
+    overflow: hidden;
+    transition: all 500ms ease;
     border-radius: 0px 0px 40px 40px;
-    z-index: 2;
+    top: 7.3vh;
+    box-sizing: border-box;
   }
 
   .card_close {
@@ -782,17 +798,16 @@ $color: rgb(4, 4, 4);
 
   .card_contain_button {
     position: fixed;
-    background-color: transparent;
     box-sizing: border-box;
     display: block;
     height: 6vh;
     top: 0px;
     width: 100%;
-    backdrop-filter: blur(15px);
     display: flex;
     align-items: center;
-    background-color: black;
+    justify-content: end;
     transition: all ease 1s;
+    border: none;
   }
 
   .card_contain_button button {

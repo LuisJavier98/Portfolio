@@ -11,7 +11,7 @@ const MyProject = ({ language, ProjectMove, ProjectNext, SelectCard, projectNumb
         <div ref={SelectCard} className='card_contain' >
           <div ref={ProjectMove}
             className='projects'>
-            {Projects.map((project, indice) => <div onMouseOver={() => ElementS(100, indice)} onMouseOut={() => ElementS(0, indice)} className=' project'>
+            {Projects.map((project, indice) => <div key={indice} onMouseOver={() => ElementS(100, indice)} onMouseOut={() => { ElementS(0, indice) }} className=' project'>
               <img id={indice} src={project} alt="" />
               {
                 indice == 0 ?

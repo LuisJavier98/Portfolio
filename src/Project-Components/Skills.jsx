@@ -14,7 +14,7 @@ const Skills = ({ language, dark }) => {
       </div>
       <div className='box_skills' data-aos="fade-up" >
         <div className='box_skill'  >
-          {skills.map(skill => <figure className='figure_skill'>{skill}</figure>)}
+          {skills.map(skill => <figure key={skill} className='figure_skill'>{skill}</figure>)}
         </div>
       </div>
     </div>
