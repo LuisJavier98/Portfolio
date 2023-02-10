@@ -69,9 +69,9 @@ function App() {
 
       {
         dark ?
-          <video src={video} preload autoPlay loop ></video>
+          <video src={video} muted autoPlay loop ></video>
           :
-          <video src={videoLight} preload autoPlay loop ></video>
+          <video src={videoLight} muted autoPlay loop ></video>
       }
       <Header
         language={language}
