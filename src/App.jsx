@@ -1,10 +1,8 @@
 import './App.css'
 import video from '../src/Video/Smoke.mp4'
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
-import { loadFull } from 'tsparticles'
-import options from './React-animation/options'
 import videoLight from './Video/videoLight.mp4'
 import AboutMe from './Project-Components/AboutMe'
 import Skills from './Project-Components/Skills'
@@ -15,9 +13,6 @@ import Footer from './Project-Components/Footer';
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { AiOutlineSetting, AiOutlineClose } from 'react-icons/ai'
 import { flags } from './Projects';
-
-console.log(window)
-
 
 function App() {
 
@@ -99,13 +94,6 @@ function App() {
     setrender(e.target.id)
   }
 
-  const particlesInit = useCallback(async engine => {
-    await loadFull(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async container => {
-    await console.log(container);
-  }, []);
 
   let Childs
   useEffect(() => {
@@ -118,7 +106,7 @@ function App() {
       buttonLanguage[0].style.transition = 'all 250ms ease'
       buttonLanguage[0].style.transform = 'translate(50px, -50px)'
       buttonWhatsapp[0].style.transform = 'translateY(-50px)'
-      buttonWhatsapp[0].style.transition = 'all 250ms ease'    
+      buttonWhatsapp[0].style.transition = 'all 250ms ease'
     }
     else {
       buttonDark[0].style.transform = 'translateX(0px)'
@@ -135,11 +123,11 @@ function App() {
     Childs.childNodes[i].childNodes[1].style.height = `${altitude}%`
 
   }
-  
+
 
   return (
     <div className="App" >
-      <button style={{ backgroundImage: language ? `url(${flags[0]})` : `url(${flags[1]})`}} className='button_language' onClick={handleLanguage}></button>
+      <button style={{ backgroundImage: language ? `url(${flags[0]})` : `url(${flags[1]})` }} className='button_language' onClick={handleLanguage}></button>
       <button style={{ backgroundColor: dark ? 'rgb(221, 215, 215)' : 'rgb(62, 59, 59)', color: dark ? 'black' : 'white' }} className='button_dark' onClick={handleDark}>{dark ? <BsSun /> : <BsMoon />}</button>
       <a href="https://api.whatsapp.com/send?phone=51957580094&text=Hola, Nececito mas informacion!" target='_blank'>
         <button className='button_whatsapp' style={{ backgroundImage: 'url(https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360)' }} >

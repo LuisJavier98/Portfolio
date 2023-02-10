@@ -91,7 +91,7 @@ button {
 .card_header_inactive {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   list-style: none;
   gap: 3%;
   height: 8vh;
@@ -105,6 +105,7 @@ button {
   font-weight: 500;
   box-sizing: border-box;
   transition: all ease 1s;
+  opacity: 0.95;
 }
 
 
@@ -286,8 +287,6 @@ button {
   background: linear-gradient(to top, $first , $second);
   display: grid;
   grid-template-columns: var(--grid);
-  align-items: flex-end;
-  justify-content: end;
 }
 
 .card_skills {
@@ -299,28 +298,14 @@ button {
 }
 
 .text_skills {
-  width: 80%;
+  width: 100%;
   box-sizing: border-box;
   padding: 5%;
   text-align: center;
   margin: auto auto;
   font-family: 'Courier New', Courier, monospace;
-}
 
-.box_skills {
-  width: 80%;
-  height: var(--boxSkillsHeigth);
-  box-sizing: border-box;
-  padding: 5%;
-  border-radius: 30px 30px 30px 30px;
-  box-shadow: -11px 17px 14px 0px rgba(0, 0, 0, 0.75);
-  perspective: 1500px;
-  margin: auto auto;
-  position: relative;
-  background-color: rgb(182, 182, 202);
-  border: 3px solid rgb(0, 0, 0);
 }
-
 
 .box_skill {
   margin: 0px auto;
@@ -347,19 +332,27 @@ button {
 
 }
 
-$figureHeigth: 70%;
-$figureWidth: 40%;
-$translate: 250px;
+$figureHeigth: 50%;
+$figureWidth: 25%;
+$translate: 360px;
 
 :root {
   --figureHeight: #{$figureHeigth};
   --figureWidth: #{$figureWidth};
   --translate: #{$translate};
-  --grid: repeat(2, 1fr);
-  --gridProject: repeat(2, 1fr);
+  --grid: 1fr 2fr;
+  --gridProject: 2fr 1fr;
   --boxSkillsHeigth: 60%;
   --boxProjectsHeigth: 70%;
   --boxContactMeWidth: 60%;
+}
+
+.figure_skill {
+  background: linear-gradient(to right, rgb(180, 175, 175), rgb(74, 72, 72));
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box_skill figure {
@@ -371,15 +364,8 @@ $translate: 250px;
   position: absolute;
 }
 
-.box_skill img {
-  display: block;
-  margin: auto auto;
-  width: 80%;
-  height: 100%;
-}
 
-
-$Images: 6;
+$Images: 9;
 $MaxNumber: calc($Images);
 $deg: calc(360/calc($Images));
 $display: grid;
@@ -419,18 +405,13 @@ $display: grid;
 
 .card_contain_projects {
   width: 80%;
-  border-radius: 30px 30px 30px 30px;
-  box-shadow: 11px 17px 14px 0px rgba(0, 0, 0, 0.75);
   box-sizing: border-box;
-  padding: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   transition: all 1s ease;
   height: var(--boxProjectsHeigth);
   margin: auto auto;
-  background-color: rgb(182, 182, 202);
-  border: 3px solid black;
 }
 
 
@@ -472,7 +453,7 @@ $display: grid;
   position: absolute;
   bottom: 0px;
   z-index: 1;
-  backdrop-filter: blur(30px);
+  background-color: rgb(50, 47, 47, 0.8);
   transition: all 1s ease;
   display: flex;
   justify-content: center;
@@ -492,6 +473,7 @@ $display: grid;
   text-decoration: none;
 }
 
+
 .card_subida div {
   display: flex;
 }
@@ -503,8 +485,13 @@ $display: grid;
   color: white;
   border-radius: 5px;
   cursor: pointer;
-
 }
+
+.card_subida a button:hover {
+  background-color: rgb(145, 139, 139);
+}
+
+
 
 .buttonProjectInactive {
   width: 1.5em;
@@ -775,6 +762,14 @@ $color: rgb(4, 4, 4);
     transition: all 500ms ease;
     border-radius: 0px 0px 40px 40px;
     z-index: 2;
+  }
+
+  .card_projects {
+    grid-template-rows: 0.5fr 3fr;
+  }
+
+  .card_skills {
+    grid-template-rows: 0.5fr 3fr;
   }
 
   .card_header_inactive {
