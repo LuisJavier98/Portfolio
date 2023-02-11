@@ -2,6 +2,9 @@ import Pokedex from '../src/Images/Pokedex.png'
 import Ecommerce from '../src/Images/Ecommerce.png'
 import Rick from '../src/Images/Rick.png'
 import Weather from '../src/Images/Weather.png'
+import Guitar from '../src/Images/GuitarLA.png'
+import CotizadorCripto from '../src/Images/CotizadorCripto.png'
+import PlanificadordeGastos from './Images/PlanificadorDeGastos.png'
 import spain from './Images/spain.png'
 import england from './Images/england.jpg'
 import { ImHtmlFive } from 'react-icons/im'
@@ -10,7 +13,7 @@ import { SiJavascript, SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-ic
 import { DiSass, DiReact } from 'react-icons/di'
 import { FaNodeJs } from 'react-icons/fa'
 
-const Projects = [Pokedex, Ecommerce, Rick, Weather]
+const Projects = [Pokedex, Ecommerce, Rick, Weather, Guitar, CotizadorCripto, PlanificadordeGastos]
 const backdrop = '10px 10px 15px white'
 export default Projects
 export const skills = [<ImHtmlFive style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,

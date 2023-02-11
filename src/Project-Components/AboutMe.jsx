@@ -28,14 +28,14 @@ const AboutMe = ({ language, dark }) => {
       <div ref={Card} onMouseMove={e => tiltEffect(e)} onMouseOut={disableAnimation} data-aos="flip-left" className='card_personal'>
         <div>
           <img className='card_image' src={image} alt="" />
-          <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>{language ? 'Hi , my name is Luis .Im a industrial engineer , interested in the finantial markets and development webs , Im 24 years old , Im a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.' : 'Hola mi nombre es Luis.Soy Ingeniero Industrial interesado en los mercados financieros y en el desarrollo web , Tengo 24 años , me considero una persona resiliente y diciplinada , siempre enfocado en lograr todas las metas que me proponga'}
+          <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>{language ? 'Hi , my name is Luis .Im a industrial engineer , interested in the finantial markets and development webs , Im 24 years old , Im a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.' : 'Hola mi nombre es Luis.Soy Ingeniero Industrial interesado en los mercados financieros y en el desarrollo web , tengo 24 años , me considero una persona resiliente y diciplinada , siempre enfocado en lograr todas las metas que me proponga'}
           </p>
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }} className='card_education' >
           <p>{language ? 'Education' : 'Eduación'}</p>
           <div>
-            <p style={{ color: 'gray' }}>{language ? '2022-Currently' : '2022-Actualidad'}</p>
-            <p>{language ? 'Full-stack Developer student at Academlo' : 'Estudiante de desarrollo Full-stack en Academlo'}</p>
+            <p style={{ color: 'gray' }}>{language ? 'Aug 2022- Dec 2022' : 'Ago 2022-Dic 2022'}</p>
+            <p>{language ? 'Full-stack Developer graduated from Academlo' : 'Graduado como desarrollo Full-stack en Academlo'}</p>
           </div>
           <div>
             <p style={{ color: 'gray' }}>2015-2021</p>

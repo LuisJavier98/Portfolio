@@ -52,7 +52,7 @@ function App() {
 
 
   useEffect(() => {
-    ProjectMove.current.style.transform = `translateX(${-25 * projectNumber}%)`
+    ProjectMove.current.style.transform = `translateX(${-(100 / 7) * projectNumber}%)`
     ProjectMove.current.style.transition = 'all 250ms ease'
   }
     , [render])
