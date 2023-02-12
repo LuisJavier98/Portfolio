@@ -17,15 +17,15 @@ import { FaNodeJs } from 'react-icons/fa'
 const Projects = [Pokedex, Ecommerce, Rick, Weather, Guitar, CotizadorCripto, PlanificadordeGastos, BuscadorDeBebidas]
 const backdrop = '10px 10px 15px white'
 export default Projects
-export const skills = [<ImHtmlFive style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<IoLogoCss3 style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<DiSass style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<SiTailwindcss style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<SiJavascript style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop}) ` }} />,
-<SiTypescript style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<DiReact style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<SiNextdotjs style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
-<FaNodeJs style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />
+export const skills = [{ id: 1, image: <ImHtmlFive style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 2, image: <IoLogoCss3 style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 3, image: <DiSass style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 4, image: <SiTailwindcss style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 5, image: <SiJavascript style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop}) ` }} /> },
+{ id: 6, image: <SiTypescript style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 7, image: <DiReact style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 8, image: <SiNextdotjs style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> },
+{ id: 9, image: <FaNodeJs style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} /> }
 ]
 export const flags = [spain, england]
 

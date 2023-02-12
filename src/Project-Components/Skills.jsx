@@ -1,6 +1,5 @@
 import React from 'react'
 import { skills } from '../Projects.jsx'
-import { ImHtmlFive } from 'react-icons/im'
 
 
 const Skills = ({ language, dark }) => {
@@ -14,7 +13,7 @@ const Skills = ({ language, dark }) => {
       </div>
       <div className='box_skills' data-aos="fade-up" >
         <div className='box_skill'  >
-          {skills.map(skill => <figure key={skill} className='figure_skill'>{skill}</figure>)}
+          {skills.map(skill => <figure key={skill.id} className='figure_skill'>{skill.image}</figure>)}
         </div>
       </div>
     </div>

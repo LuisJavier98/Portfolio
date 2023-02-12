@@ -1,9 +1,3 @@
-import React from 'react'
-import { BsMoon, BsSun } from 'react-icons/bs'
-import { IoIosCloseCircleOutline } from 'react-icons/io'
-
-
-
 
 const Header = ({ language, isActive, handleChange, headers, dark, handleLanguage, handleDark }) => {
 
@@ -15,11 +9,10 @@ const Header = ({ language, isActive, handleChange, headers, dark, handleLanguag
           <input type="checkbox" name="switch-button" id="switch-label" className="switch-button__checkbox" />
           <label htmlFor="switch-label" className="switch-button__label" onClick={handleLanguage}></label>
         </div>
-        <div className="switch-button" >
-          <input type="checkbox" name="switch-button" id="switch-label2" className="switch-button__checkbox" />
-          <label htmlFor="switch-label2" className="switch-button__label" onClick={handleDark}></label>
+        <div className="switch-button2" >
+          <input type="checkbox" name="switch-button" id="switch-label2" className="switch-button__checkbox2" />
+          <label onClick={handleDark} htmlFor="switch-label2" className="switch-button__label2"></label>
         </div>
-        {/* <button style={{ backgroundColor: dark ? 'rgb(221, 215, 215)' : 'rgb(62, 59, 59)', color: dark ? 'black' : 'white' }} className='button_dark' onClick={handleDark}>{dark ? <BsSun /> : <BsMoon />}</button> */}
       </li>
       <li>
         <a className={dark ? 'cardLinkDark' : 'cardLinkLight'} style={{ transition: 'all 500ms ease' }} onClick={handleChange} href="#home">{language ? 'Home' : 'Principal'}</a>
