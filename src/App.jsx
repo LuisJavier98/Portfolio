@@ -52,7 +52,7 @@ function App() {
 
 
   useEffect(() => {
-    ProjectMove.current.style.transform = `translateX(${-(100 / 7) * projectNumber}%)`
+    ProjectMove.current.style.transform = `translateX(${-(100 / 8) * projectNumber}%)`
     ProjectMove.current.style.transition = 'all 250ms ease'
   }
     , [render])
@@ -68,7 +68,6 @@ function App() {
 
   return (
     <div className="App" >
-
       {
         dark ?
           <video src={video} muted autoPlay loop ></video>
@@ -91,6 +90,7 @@ function App() {
         handleChange={handleChange}
         Reference={Reference}
         dark={dark}
+        isActive={isActive}
       />
 
       <AboutMe
@@ -121,4 +121,4 @@ function App() {
 }
 
 export default App
-//en serio?
+

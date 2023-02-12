@@ -235,14 +235,14 @@ h2 {
 .card_personal {
   background-size: 100% 100%;
   display: grid;
-  grid-template-columns: var(--grid);
+  grid-template-columns: 1fr 1fr;
   margin: 10px auto;
   border-radius: 30px;
   background-color: rgb(182, 182, 202);
-  width: 80%;
+  width: 90%;
   height: 65%;
   box-sizing: border-box;
-  padding: 5%;
+  padding: 4%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border: 3px solid black;
   cursor: crosshair;
@@ -255,7 +255,7 @@ h2 {
 }
 
 .card_image {
-  max-width: 50%;
+  max-width: 30%;
   display: block;
   margin: 0 auto;
   border-radius: 30px;
@@ -471,7 +471,7 @@ $display: grid;
 
 .projects {
   display: flex;
-  width: 700%;
+  width: 800%;
   height: 100%;
 }
 
@@ -624,7 +624,10 @@ $color: rgb(4, 4, 4);
     border: 3px solid black;
     border-radius: 30px 30px 30px 30px;
     cursor: crosshair;
-    padding: 2%;
+    padding: 4%;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    color: rgb(58, 54, 54);
 
     h2 {
       color: white;
@@ -740,7 +743,7 @@ $color: rgb(4, 4, 4);
 
 
   :root {
-    --figureHeight: calc(#{$figureHeigth}* 0.7);
+    --figureHeight: calc(#{$figureHeigth}* 0.9);
     --figureWidth: calc(#{$figureWidth} * 0.9);
     --translate: calc(#{$translate} * 0.7);
     --p: 22px
@@ -750,22 +753,65 @@ $color: rgb(4, 4, 4);
 @media (max-width:950px) {
 
   :root {
-    --figureHeight: calc(#{$figureHeigth}* 0.5);
-    --figureWidth: calc(#{$figureWidth} * 0.8);
-    --translate: calc(#{$translate} * 0.5);
+    --figureHeight: calc(#{$figureHeigth}* 0.9);
+    --figureWidth: calc(#{$figureWidth} *0.95);
+    --translate: calc(#{$translate} * 0.6);
     --p: 20px
   }
 }
 
-@media (max-width:700px) {
+@media (max-width:768px) {
 
   $display: flex;
 
+  .menu,
+  .menu_close {
+    position: relative;
+    height: 10px;
+    width: 10px;
+    box-sizing: border-box;
+    transition: all 200ms;
+  }
+
+  .menu::before,
+  .menu_close::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid white;
+    transition: all 200ms;
+  }
+
+  .menu::after,
+  .menu_close::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    height: 0px;
+    border-bottom: 1px solid white;
+  }
+
+  .menu_close::after {
+    bottom: 4.5px;
+    transform: rotateZ(45deg);
+    transition: all 200ms;
+  }
+
+  .menu_close::before {
+    top: 4.5px;
+    transform: rotateZ(-45deg);
+    transition: all 200ms;
+  }
+
+
   :root {
     --grid: none;
-    --figureHeight: calc(#{$figureHeigth}* 1);
-    --figureWidth: calc(#{$figureWidth} * 0.8);
-    --translate: calc(#{$translate} * 0.6);
+    --figureHeight: calc(#{$figureHeigth}* 1.2);
+    --figureWidth: calc(#{$figureWidth} * 0.85);
+    --translate: calc(#{$translate} * 0.8);
     --gridProject: repeat(1, 1fr);
     --boxProjectsHeigth: 70%;
     --boxSkillsHeigth: 100%;
@@ -773,7 +819,13 @@ $color: rgb(4, 4, 4);
     --p: 18px
   }
 
-  card .text_project {
+  .card_contactMe {
+    form {
+      width: 85%;
+    }
+  }
+
+  .card .text_project {
     order: -1;
   }
 
@@ -790,7 +842,47 @@ $color: rgb(4, 4, 4);
     box-sizing: border-box;
   }
 
+  .card_personal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr;
+  }
+
+  .card_buttons_download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 20px auto 0px;
+  }
+
+  .button_download {
+    font-size: 12px;
+
+  }
+
+  .button_download {
+    height: 50px;
+  }
+
+  .button_download_2 {
+    width: 100%;
+    height: 50px;
+  }
+
   .card_projects {
+    grid-template-rows: 0.5fr 3fr;
+  }
+
+  .card_projectsLight {
+    grid-template-rows: 0.5fr 3fr;
+  }
+
+
+  .card_skills {
+    grid-template-rows: 0.5fr 3fr;
+  }
+
+  .card_skillsLight {
     grid-template-rows: 0.5fr 3fr;
   }
 
@@ -807,10 +899,6 @@ $color: rgb(4, 4, 4);
   .card_contain {
     flex: 5;
 
-  }
-
-  .card_skills {
-    grid-template-rows: 0.5fr 3fr;
   }
 
   .card_header_inactive {
@@ -862,7 +950,17 @@ $color: rgb(4, 4, 4);
 
 }
 
-@media (max-width:450px) {
+@media (max-width:650px) {
+
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 0.8);
+    --translate: calc(#{$translate} * 0.65);
+    --p: 15px
+  }
+}
+
+@media (max-width:550px) {
 
   :root {
     --figureHeight: calc(#{$figureHeigth}* 1);
@@ -870,6 +968,19 @@ $color: rgb(4, 4, 4);
     --translate: calc(#{$translate} * 0.5);
     --p: 15px
   }
+
+}
+
+@media (max-width:435px) {
+
+
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 0.95);
+    --translate: calc(#{$translate} * 0.4);
+    --p: 12px
+  }
+
 }
 
 @media (max-width:360px) {
@@ -877,18 +988,7 @@ $color: rgb(4, 4, 4);
 
   :root {
     --figureHeight: calc(#{$figureHeigth}* 1);
-    --figureWidth: calc(#{$figureWidth} * 0.7);
-    --translate: calc(#{$translate} * 0.4);
-    --p: 12px
-  }
-}
-
-@media (max-width:300px) {
-
-
-  :root {
-    --figureHeight: calc(#{$figureHeigth}* 1);
-    --figureWidth: calc(#{$figureWidth} * 0.7);
+    --figureWidth: calc(#{$figureWidth} * 0.9);
     --translate: calc(#{$translate} * 0.3);
     --p: 10px
   }

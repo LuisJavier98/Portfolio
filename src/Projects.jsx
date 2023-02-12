@@ -5,6 +5,7 @@ import Weather from '../src/Images/Weather.png'
 import Guitar from '../src/Images/GuitarLA.png'
 import CotizadorCripto from '../src/Images/CotizadorCripto.png'
 import PlanificadordeGastos from './Images/PlanificadorDeGastos.png'
+import BuscadorDeBebidas from './Images/BuscadorDeBebidas.png'
 import spain from './Images/spain.png'
 import england from './Images/england.jpg'
 import { ImHtmlFive } from 'react-icons/im'
@@ -13,7 +14,7 @@ import { SiJavascript, SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-ic
 import { DiSass, DiReact } from 'react-icons/di'
 import { FaNodeJs } from 'react-icons/fa'
 
-const Projects = [Pokedex, Ecommerce, Rick, Weather, Guitar, CotizadorCripto, PlanificadordeGastos]
+const Projects = [Pokedex, Ecommerce, Rick, Weather, Guitar, CotizadorCripto, PlanificadordeGastos, BuscadorDeBebidas]
 const backdrop = '10px 10px 15px white'
 export default Projects
 export const skills = [<ImHtmlFive style={{ width: '80%', height: '80%', filter: `drop-shadow(${backdrop})` }} />,
@@ -94,8 +95,19 @@ export function Etiquetas(language, index) {
         <a href="https://gleaming-tapioca-c1db7d.netlify.app" target={'_blank'}><button>Demo</button></a>
         <a href="https://github.com/LuisJavier98/ControlDeGastos" target={'_blank'}><button>{language ? 'Code' : 'Codigo'}</button></a>
       </div>
-    </div>
+    </div>,
+    7: <div div className='card_subida' >
+      <h2 style={{ textAlign: 'center', color: 'white' }} >Buscador de Bebidas</h2>
+      <p style={{ color: 'white' }}>{
+        language ? 'Web focused on the search for drink combinations that you can create, each option has its respective preparation instruction. The page was designed with React as the main framework and Bootstrap for the design' : 'Web enfocada en la busqueda de combinaciones de bebidas que puedes crear , cada opcion cuenta con su respectiva instruccion de preparacion .La pagina fue diseñada con React como framework principal y Bootstrap para el diseño'
+      }</p>
+      <div style={{ display: 'flex', gap: '8%' }}>
+        <a href="https://merry-alfajores-80ad78.netlify.app/" target={'_blank'}><button>Demo</button></a>
+        <a href="https://github.com/LuisJavier98/Bebidas" target={'_blank'}><button>{language ? 'Code' : 'Codigo'}</button></a>
+      </div>
+    </div >
   }
-
   return etiquetas[index]
 }
+
+

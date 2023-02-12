@@ -25,15 +25,15 @@ const Footer = ({ language, dark }) => {
     <footer style={{ background: dark ? ' linear-gradient(to top, #181818, rgb(87, 82, 82))' : 'linear-gradient(to top, rgba(219, 228, 237, 255), rgb(87, 82, 82))' }} className='card_contactMe' id='contactMe'>
       <h2 className='card_contact' style={{ color: dark ? 'white' : 'black' }}> {language ? 'Contact Me' : 'Contactame'}</h2>
       <form ref={Footer} onMouseMove={tiltEffect} onMouseOut={disableAnimation} data-aos="flip-up" data-aos-duration="500" action='https://formsubmit.co/luisjavier_2705@hotmail.com' method='POST' className='card_info'>
-        <label htmlFor="">{language ? 'First Name' : 'Nombres'}</label>
+        <label htmlFor=""><p>{language ? 'First Name' : 'Nombres'}</p></label>
         <input type="text" name='first_name' required autoComplete='off' />
-        <label htmlFor="">{language ? 'Last Name' : 'Apellidos'}</label>
+        <label htmlFor=""><p>{language ? 'Last Name' : 'Apellidos'}</p></label>
         <input type="text" name='last_name' required autoComplete='off' />
-        <label htmlFor="">{language ? 'Email' : 'Correo Electronico'}</label>
+        <label htmlFor=""><p> {language ? 'Email' : 'Correo Electronico'}</p></label>
         <input type="email" name='email' required autoComplete='off' />
-        <label htmlFor="number">{language ? 'Phone Number' : 'Celular'}</label>
+        <label htmlFor="number"> <p>{language ? 'Phone Number' : 'Celular'}</p></label>
         <input type="number" name='number' required autoComplete='off' />
-        <label htmlFor="">{language ? 'Message' : 'Mensaje'}</label>
+        <label htmlFor=""><p>{language ? 'Message' : 'Mensaje'}</p></label>
         <textarea name="message" id="" cols="30" rows="10" required ></textarea>
         <button type='submit' className='button_send'>{language ? 'Send' : 'Enviar'}</button>
       </form>

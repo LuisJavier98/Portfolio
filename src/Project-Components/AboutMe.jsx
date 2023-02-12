@@ -28,7 +28,7 @@ const AboutMe = ({ language, dark }) => {
       <div ref={Card} onMouseMove={e => tiltEffect(e)} onMouseOut={disableAnimation} data-aos="flip-left" className='card_personal'>
         <div>
           <img className='card_image' src={image} alt="" />
-          <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>{language ? 'Hi , my name is Luis .Im a industrial engineer , interested in the finantial markets and development webs , Im 24 years old , Im a resilient and displined person ,willing and focused on fulfilling all the objectives that proposed to me.' : 'Hola mi nombre es Luis.Soy Ingeniero Industrial interesado en los mercados financieros y en el desarrollo web , tengo 24 años , me considero una persona resiliente y diciplinada , siempre enfocado en lograr todas las metas que me proponga'}
+          <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>{language ? 'I present myself as a highly disciplined and persevering person in the fulfillment of my goals and objectives. My dedication and commitment are the pillars of my work and I strive to always achieve excellence in everything I do. In addition, I am an individual who is characterized by having a fast learning and a great ability to adapt to new situations and technologies.' : 'Me presento como una persona altamente disciplinada y perseverante en el cumplimiento de mis metas y objetivos. Mi dedicación y compromiso son los pilares de mi trabajo y me esfuerzo por alcanzar siempre la excelencia en todo lo que hago. Además, soy un individuo que se caracteriza por tener un aprendizaje rápido y una gran capacidad de adaptación a nuevas situaciones y tecnologías.'}
           </p>
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }} className='card_education' >
@@ -43,7 +43,7 @@ const AboutMe = ({ language, dark }) => {
           </div>
           <div className='card_buttons_download'>
             <div className='card_box_download'>
-              <button className='button_download'><a style={{ color: 'white', textDecoration: 'none' }} href={CV} download>{language ? 'Download CV' : 'Descargar CV'}</a></button>
+              <button className='button_download'><a style={{ color: 'white', textDecoration: 'none' }} href={CV} download> {language ? 'Download CV' : 'Descargar CV'}</a></button>
               <button className='button_download_2'><a style={{ color: 'white' }} href={CV} download><BsDownload style={{ transform: 'scale(1.4)' }} /></a></button>
             </div>
           </div>
