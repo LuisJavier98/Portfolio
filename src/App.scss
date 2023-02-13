@@ -312,8 +312,15 @@ h2 {
   box-shadow: 0px 0px 14px 0px rgba(246, 242, 242, 0.75);
 }
 
+.card_imageInformation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column
+}
+
+
 .card_image {
-  max-width: 30%;
+  width: 50%;
   display: block;
   margin: 0 auto;
   border-radius: 30px;
@@ -677,7 +684,7 @@ $color: rgb(4, 4, 4);
   form {
     @include foot(column);
     transition: all 300ms;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
     background-color: rgb(182, 182, 202);
     border: 3px solid black;
     border-radius: 30px 30px 30px 30px;
@@ -798,12 +805,12 @@ $color: rgb(4, 4, 4);
 
 
 
-@media (min-width:1300px) {
+@media (min-width:1240px) {
   :root {
     --figureHeight: calc(#{$figureHeigth}* 1);
     --figureWidth: calc(#{$figureWidth} * 1.1);
     --translate: calc(#{$translate} * 1.1);
-    --p: 30px
+    --p: 20px
   }
 
   button {
@@ -816,7 +823,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1.2);
     --figureWidth: calc(#{$figureWidth} * 1.1);
     --translate: calc(#{$translate} * 1.3);
-    --p: 30px
+    --p: 25px
   }
 }
 
@@ -825,7 +832,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1.2);
     --figureWidth: calc(#{$figureWidth} * 1.1);
     --translate: calc(#{$translate} * 1.5);
-    --p: 35px
+    --p: 30px
   }
 
   button {
@@ -847,7 +854,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1.2);
     --figureWidth: calc(#{$figureWidth} * 1.1);
     --translate: calc(#{$translate} * 1.7);
-    --p: 40px
+    --p: 38px
   }
 }
 
@@ -865,7 +872,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 0.9);
     --figureWidth: calc(#{$figureWidth} * 0.9);
     --translate: calc(#{$translate} * 0.8);
-    --p: 25px
+    --p: 20px
   }
 
 }
@@ -876,7 +883,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 0.9);
     --figureWidth: calc(#{$figureWidth} *0.95);
     --translate: calc(#{$translate} * 0.7);
-    --p: 25px
+    --p: 20px
   }
 
 }
@@ -884,6 +891,14 @@ $color: rgb(4, 4, 4);
 @media (max-width:768px) {
 
   $display: flex;
+
+  .card_imageInformation {
+    justify-content: flex-end;
+  }
+
+  .card_education {
+    margin: none;
+  }
 
   .menu,
   .menu_close {
@@ -893,6 +908,7 @@ $color: rgb(4, 4, 4);
     box-sizing: border-box;
     transition: all 200ms;
   }
+
 
   .menu::before,
   .menu_close::before {
@@ -937,7 +953,7 @@ $color: rgb(4, 4, 4);
     --boxProjectsHeigth: 70%;
     --boxSkillsHeigth: 100%;
     --boxContactMeWidth: 70%;
-    --p: 18px
+    --p: 22px
   }
 
   .card_contactMe {
@@ -965,7 +981,7 @@ $color: rgb(4, 4, 4);
 
   .card_personal {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   .card_buttons_download {
@@ -1077,7 +1093,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1);
     --figureWidth: calc(#{$figureWidth} * 0.8);
     --translate: calc(#{$translate} * 0.65);
-    --p: 15px
+    --p: 22px
   }
 }
 
@@ -1087,7 +1103,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1);
     --figureWidth: calc(#{$figureWidth} * 0.8);
     --translate: calc(#{$translate} * 0.5);
-    --p: 15px
+    --p: 18px
   }
 
 }
@@ -1099,7 +1115,7 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1);
     --figureWidth: calc(#{$figureWidth} * 0.95);
     --translate: calc(#{$translate} * 0.4);
-    --p: 12px
+    --p: 18px
   }
 
 }
@@ -1111,6 +1127,6 @@ $color: rgb(4, 4, 4);
     --figureHeight: calc(#{$figureHeigth}* 1);
     --figureWidth: calc(#{$figureWidth} * 0.9);
     --translate: calc(#{$translate} * 0.3);
-    --p: 10px
+    --p: 16px
   }
 }
