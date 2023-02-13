@@ -8,6 +8,10 @@ button {
 
 }
 
+.app {
+  position: relative;
+}
+
 
 body {
   margin: 0px;
@@ -300,6 +304,7 @@ h2 {
   border: 3px solid black;
   cursor: crosshair;
   transition: all 1000ms;
+  flex: 8;
 }
 
 .card_personal:hover {
@@ -792,15 +797,77 @@ $color: rgb(4, 4, 4);
 
 
 
+
+@media (min-width:1300px) {
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1);
+    --figureWidth: calc(#{$figureWidth} * 1.1);
+    --translate: calc(#{$translate} * 1.1);
+    --p: 30px
+  }
+
+  button {
+    font-size: 18px;
+  }
+}
+
+@media (min-width:1500px) {
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1.2);
+    --figureWidth: calc(#{$figureWidth} * 1.1);
+    --translate: calc(#{$translate} * 1.3);
+    --p: 30px
+  }
+}
+
+@media (min-width:1700px) {
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1.2);
+    --figureWidth: calc(#{$figureWidth} * 1.1);
+    --translate: calc(#{$translate} * 1.5);
+    --p: 35px
+  }
+
+  button {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+}
+
+@media (min-width:1900px) {
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1.2);
+    --figureWidth: calc(#{$figureWidth} * 1.1);
+    --translate: calc(#{$translate} * 1.7);
+    --p: 40px
+  }
+}
+
+@media (min-width:2100px) {
+  :root {
+    --figureHeight: calc(#{$figureHeigth}* 1.2);
+    --figureWidth: calc(#{$figureWidth} * 1.1);
+    --translate: calc(#{$translate} * 1.9);
+    --p: 45px
+  }
+}
+
 @media (max-width:1240px) {
-
-
   :root {
     --figureHeight: calc(#{$figureHeigth}* 0.9);
     --figureWidth: calc(#{$figureWidth} * 0.9);
-    --translate: calc(#{$translate} * 0.7);
-    --p: 22px
+    --translate: calc(#{$translate} * 0.8);
+    --p: 25px
   }
+
 }
 
 @media (max-width:950px) {
@@ -808,9 +875,10 @@ $color: rgb(4, 4, 4);
   :root {
     --figureHeight: calc(#{$figureHeigth}* 0.9);
     --figureWidth: calc(#{$figureWidth} *0.95);
-    --translate: calc(#{$translate} * 0.6);
-    --p: 20px
+    --translate: calc(#{$translate} * 0.7);
+    --p: 25px
   }
+
 }
 
 @media (max-width:768px) {

@@ -13,11 +13,11 @@ const Home = ({ language, handleChange, Reference, dark, isActive }) => {
         <button style={{ color: dark ? 'white' : "black" }} onClick={handleChange}><div className={isActive ? 'menu_close' : 'menu'}></div></button>
       </div>
       <h1 style={{ color: dark ? 'white' : 'black', transition: 'all 500ms ease' }}>Luis Javier</h1>
-      <div style={{ color: dark ? 'white' : 'black', textAlign: 'center', transition: 'all 500ms ease' }}>
+      <p style={{ color: dark ? 'white' : 'black', textAlign: 'center', transition: 'all 500ms ease' }}>
         <Typewriter
           options={language ? optionEnglish : optionSpanish}
         />
-      </div>
+      </p>
     </div>
   )
 }

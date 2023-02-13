@@ -14,7 +14,7 @@ const AboutMe = ({ language, dark }) => {
     const perspectiveY = e.clientY - marginY - (e.target.clientHeight / 2)
     Card.current.style.transitionTimingFunction = 'ease-out'
     Card.current.style.transitionDuration = '300ms'
-    Card.current.style.transform = `perspective(2700px) translate3d(0,0,50px) rotateX(${-perspectiveY / 30}deg) rotateY(${perspectiveX / 30}deg) `
+    Card.current.style.transform = `perspective(2700px) translate3d(0,0,50px) rotateX(${-perspectiveY / 45}deg) rotateY(${perspectiveX / 45}deg) `
   }
   const disableAnimation = () => {
     Card.current.style.transform = ''
@@ -24,9 +24,9 @@ const AboutMe = ({ language, dark }) => {
 
   return (
     <div className={dark ? 'card_aboutMe' : 'card_aboutMeLight'} id='aboutMe' >
-      <h2 style={{ color: dark ? 'white' : 'black', textAlign: 'center', margin: '0' }}>{language ? 'About me' : 'Acerca de mi'}</h2>
+      <h2 style={{ flex: 1, color: dark ? 'white' : 'black', textAlign: 'center', margin: '0' }}>{language ? 'About me' : 'Acerca de mi'}</h2>
       <div ref={Card} onMouseMove={e => tiltEffect(e)} onMouseOut={disableAnimation} data-aos="flip-left" className='card_personal'>
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
           <img className='card_image' src={image} alt="" />
           <p style={{ color: 'rgb(58, 54, 54)', textAlign: 'center' }}>{language ? 'I present myself as a highly disciplined and persevering person in the fulfillment of my goals and objectives. My dedication and commitment are the pillars of my work and I strive to always achieve excellence in everything I do. In addition, I am an individual who is characterized by having a fast learning and a great ability to adapt to new situations and technologies.' : 'Me presento como una persona altamente disciplinada y perseverante en el cumplimiento de mis metas y objetivos. Mi dedicación y compromiso son los pilares de mi trabajo y me esfuerzo por alcanzar siempre la excelencia en todo lo que hago. Además, soy un individuo que se caracteriza por tener un aprendizaje rápido y una gran capacidad de adaptación a nuevas situaciones y tecnologías.'}
           </p>
