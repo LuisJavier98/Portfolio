@@ -1,0 +1,10 @@
+{
+  "TITLE": "Contact me",
+  "NAME": "First name",
+  "LAST_NAME": "Last name",
+  "EMAIL": "Email",
+  "NUMBER": "Number",
+  "MESSAGE": "Message",
+  "SEND": "Send",
+  "VALIDATION":"The {{name}} only have to contain letters"
+}

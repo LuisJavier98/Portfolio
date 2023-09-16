@@ -1,3 +1,7 @@
-body{
+body {
     position: relative;
+}
+
+:root {
+    --width-of-header: 8vh;
 }

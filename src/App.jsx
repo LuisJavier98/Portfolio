@@ -1,15 +1,23 @@
 import './App.css'
-import video from '../src/Video/Smoke.mp4'
-import { useRef, useState, useEffect } from 'react'
+import video from '../static/Video/Smoke.mp4'
+import React, { useRef, useState, useEffect, Suspense, lazy } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
-import videoLight from './Video/videoLight.mp4'
-import AboutMe from './Project-Components/AboutMe'
-import Skills from './Project-Components/Skills'
-import Home from './Project-Components/Home'
-import MyProject from './Project-Components/MyProject'
-import Header from './Project-Components/Header'
-import Footer from './Project-Components/Footer';
+import videoLight from '../static/Video/videoLight.mp4'
+import Header from './Components/Header/Header';
+import AboutMe from './Components/About/AboutMe';
+import Skills from './Components/Skills/Skills';
+import Home from './Components/Home/Home';
+import MyProject from './Components/Project/MyProject';
+import Footer from './Components/Footer/Footer'
+import Loading from './Components/Loading/Loading';
+
+// const AboutMe = lazy(() => import('./Components/About/AboutMe'))
+// const Skills = lazy(() => import('./Components/Skills/Skills'))
+// const Home = lazy(() => import('./Components/Home/Home'))
+// const MyProject = lazy(() => import('./Components/Project/MyProject'))
+// const Footer = lazy(() => import('./Components/Footer/Footer'))
+// const Header = lazy(() => import("./Components/Header/Header"));
 
 function App() {
 
@@ -19,13 +27,10 @@ function App() {
     easing: 'ease',
   });
 
-
   const [projectNumber, setprojectNumber] = useState(0)
   const [render, setrender] = useState()
   const [dark, setdark] = useState(true)
   const [isActive, setisActive] = useState(false)
-  const [language, setlanguage] = useState(true)
-  const ProjectMove = useRef()
   const headers = useRef()
   const Reference = useRef()
 
@@ -35,9 +40,6 @@ function App() {
     setdark(!dark)
   }
 
-  const handleLanguage = () => {
-    setlanguage(!language)
-  }
   const handleChange = () => {
     setisActive(!isActive)
   }
@@ -50,73 +52,46 @@ function App() {
     setrender(e.target.id)
   }
 
-
-  useEffect(() => {
-    ProjectMove.current.style.transform = `translateX(${-(100 / 8) * projectNumber}%)`
-    ProjectMove.current.style.transition = 'all 250ms ease'
-  }
-    , [render])
-
-
-  const ElementS = (altitude, i) => {
-
-    let Childs = SelectCard.current.childNodes[0]
-    Childs.childNodes[i].childNodes[1].style.height = `${altitude}%`
-
-  }
-
-
   return (
+    // <Suspense fallback={<div>...LOADING</div>}>
     <div className="App" >
       {
         dark ?
-          <video src={video} muted autoPlay loop ></video>
+          <video poster='static/Images/poster.jpg' src={video} muted autoPlay loop ></video>
           :
-          <video src={videoLight} muted autoPlay loop ></video>
+          <video  src={videoLight} muted autoPlay loop ></video>
       }
-      <Header
-        language={language}
-        isActive={isActive}
-        handleChange={handleChange}
-        headers={headers}
-        dark={dark}
-        handleDark={handleDark}
-        handleLanguage={handleLanguage}
-
-      />
-
-      <Home
-        language={language}
-        handleChange={handleChange}
-        Reference={Reference}
-        dark={dark}
-        isActive={isActive}
-      />
-
-      <AboutMe
-        language={language}
-        dark={dark} />
-
-      <Skills
-        language={language}
-        dark={dark} />
-
-      <MyProject
-        language={language}
-        ProjectMove={ProjectMove}
-        ProjectNext={ProjectNext}
-        SelectCard={SelectCard}
-        projectNumber={projectNumber}
-        ElementS={ElementS}
-        dark={dark}
-      />
-      <Footer
-        language={language}
-        dark={dark}
-      />
-
-
+      <Suspense fallback={<Loading/>}>
+        <Header
+          isActive={isActive}
+          handleChange={handleChange}
+          headers={headers}
+          dark={dark}
+          handleDark={handleDark}
+        />
+        <Home
+          handleChange={handleChange}
+          Reference={Reference}
+          dark={dark}
+          isActive={isActive}
+        />
+        <AboutMe
+          dark={dark} />
+        <Skills
+          dark={dark} />
+        <MyProject
+          render={render}
+          ProjectNext={ProjectNext}
+          SelectCard={SelectCard}
+          projectNumber={projectNumber}
+          dark={dark}
+        />
+        <Footer
+          dark={dark}
+        />
+      </Suspense >
     </div >
+    // </Suspense>
   )
 }
 

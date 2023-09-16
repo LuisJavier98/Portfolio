@@ -1,0 +1,11 @@
+{
+  "POKEDEX": "Web page focus on searching pokemons by type and name , made with Html , CSS , React and the libraries Redux , Routes and Axios",
+  "ECOMMERCE": "Web focus on searching products and filtering by price and category , developed with Html , CSS , React and the libraries Redux , Routes , Hook form and Axios",
+  "RICK_AND_MORTY": "App focus on searching Rick and Mortys chapters made with Html,CSS, React and the libraries React Select and Axios",
+  "WEATHER": "Web focus on showing the dates about the weather in the country where was searching ,it was developed with Html,CSS , React and its library Axios",
+  "GUITAR_LA": "Web focus on showing guitars on sell ,with a data base created in Strapi and publicated in Render,it was developed with TailwindCss and Nextjs",
+  "COTIZADOR": "Web focused on showing the most valued cryptocurrencies in the market, Axios was used for the requests as well as React as the main framework and TailwindCss for the design of the page",
+  "CONTROLLER": "Web page designed for budget control, it was designed with React as the main framework and Css for the design, likewise the ReactCircularProgressBar and reactSwipeableList libraries were used to add animations.",
+  "DRINKS": "Web focused on the search for drink combinations that you can create, each option has its respective preparation instruction. The page was designed with React as the main framework and Bootstrap for the design",
+  "CODE":"Code"
+}

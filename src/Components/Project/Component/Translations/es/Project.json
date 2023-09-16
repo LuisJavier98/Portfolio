@@ -1,0 +1,11 @@
+{
+  "POKEDEX": "Pagina enfoacada en la busqueda de pokemones por tipo y nombre , desarrolada con Html,CSS,React y sus librerias Routes , Redux y Axios",
+  "ECOMMERCE": "Web enfocada a la busqueda de productos de una tienda virtual con opcion a filtrarlo por categoria y precio , desarrollada con Html , CSS , React and the libraries Redux , Routes , Hook form and Axios",
+  "RICK_AND_MORTY": "Web enfocada en la busqueda de capitulos de la serie Rick and Morty, desarrollada con Html,CSS,React y las librerias React Select y Axios",
+  "WEATHER": "Web enfocada en mostras los datos acerca del clima en el lugar donde es requerida , fue realizada con Html , CSS ,React y su libreria Axios",
+  "GUITAR_LA": "Web enfocada en mostrar guitarras en venta , la base de datos fue creada en Strapi y publicada en Render , la pagina fue desarrollada con Nextjs y TailwindCss para el diseño",
+  "COTIZADOR": "Web enfocada en mostrar las crritomonedas mas cotizadas del mercado , se hizo uso de axios para las peticiones asi como React como framework principal y TailwindCss para el diseño de la pagina",
+  "CONTROLLER": "Pagina web diseñada para el control presupuestario , fue diseñada con React como principal framework y Css para el diseño , asi mismo se utilizaron las librerias ReactCircularProgressBar y reactSwipeableList para añadirle animaciones.",
+  "DRINKS": "Web enfocada en la busqueda de combinaciones de bebidas que puedes crear , cada opcion cuenta con su respectiva instruccion de preparacion .La pagina fue diseñada con React como framework principal y Bootstrap para el diseño.",
+  "CODE":"Codigo"
+}

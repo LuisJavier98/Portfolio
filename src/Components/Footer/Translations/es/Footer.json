@@ -1,0 +1,10 @@
+{
+  "TITLE":"Contactame",
+  "NAME":"Nombres",
+  "LAST_NAME":"Apellidos",
+  "EMAIL":"Email",
+  "NUMBER":"Numero",
+  "MESSAGE":"Mensaje",
+  "SEND":"Enviar",
+  "VALIDATION":"El {{name}} solo debe contener letras"
+  }
